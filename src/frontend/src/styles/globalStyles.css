@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green-color: #159959;
+    --secondary-green-color: #0a542e;
+    --red-normal: #d72929;
+    --black-normal: #000;
+    --white-normal: #ffffff;
+    --whatsapp-color: #2bcb04;
+    }
+
+body{
+    background-color: var(--primary-green-color);
+
+}
