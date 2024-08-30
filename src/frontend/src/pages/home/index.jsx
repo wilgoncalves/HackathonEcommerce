@@ -1,8 +1,12 @@
+import NavBar from '../../sections/navBar'
+import Header from '../../sections/header'
+
 function Home(){
 
     return (
-        <div>
-            <h1>Hello World</h1>
+        <div className='flex flex-col justify-center mt-4 items-center'>
+            <NavBar />
+            <Header />
         </div>
     )
 }
