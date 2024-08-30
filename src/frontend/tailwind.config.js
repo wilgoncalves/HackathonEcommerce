@@ -5,7 +5,22 @@ export default {
         "./src/styles/globalStyles.css",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        outfit: ['Outfit', 'sans-serif'],
+        caveat: ['Caveat Brush', 'cursive'],
+      },
+      colors: {
+        primaryGreen: 'var(--primary-green-color)',
+        secondaryGreen: 'var(--secondary-green-color)',
+        redNormal: 'var(--red-normal)',
+        blackNormal: 'var(--black-normal)',
+        whiteNormal: 'var(--white-normal)',
+        whatsappColor: 'var(--whatsapp-color)',
+        primaryDarkLight: 'var(--dark-light-color)',
+        darkFadeColor: 'var(--dark-fade-color)',
+      },
+    },
   },
   plugins: [],
 }

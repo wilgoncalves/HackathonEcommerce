@@ -1,8 +1,12 @@
+import NavBar from '../../components/navBar/index'
+import Header from '../../components/header'
+
 function Home(){
 
     return (
-        <div>
-            <h1 className="bg-red-700 py-5 px-6">Hello World</h1>
+        <div className='flex flex-col justify-center mt-4 items-center'>
+            <NavBar />
+            <Header />
         </div>
     )
 }
