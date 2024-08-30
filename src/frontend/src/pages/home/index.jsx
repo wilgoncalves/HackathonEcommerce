@@ -1,5 +1,5 @@
-import NavBar from '../../components/navBar/index'
-import Header from '../../components/header'
+import NavBar from '../../sections/navBar'
+import Header from '../../sections/header'
 
 function Home(){
 

@@ -1,4 +1,4 @@
-import Button from '../Button/index'
+import Button from '../../components/Button/index'
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";

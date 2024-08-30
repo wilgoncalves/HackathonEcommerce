@@ -1,6 +1,6 @@
 import Logo from '../../assets/logo-tana-cesta.png'
-import Button from '../Button/index'
-import Searchbar from '../searchBar/index'
+import Button from '../../components/Button/index'
+import Searchbar from '../../components/searchBar/index'
 import { TiShoppingCart } from "react-icons/ti";
 import { FaUser } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
