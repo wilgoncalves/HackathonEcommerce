@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Logo from '../../assets/logo-tana-cesta.png';
 import Button from '../../components/Button/index';
 import Searchbar from '../../components/searchBar/index';
@@ -7,10 +7,27 @@ import { FaUser, FaHeart, FaBars } from "react-icons/fa";
 
 const NavbarComponent = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const handleClickOutside = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);  // Fecha o menu se clicar fora dele
+    }
+  };
+
+  useEffect(() => {
+    // Adiciona o event listener ao montar o componente
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    // Remove o event listener ao desmontar o componente
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div className='flex flex-row md:flex-row gap-2 w-full md:w-[95%] justify-between items-center p-4'>
@@ -24,7 +41,9 @@ const NavbarComponent = () => {
         </button>
 
         {isMenuOpen && (
-          <div className="absolute top-full left-0 w-[80px] bg-opacityDarkLight rounded-xl shadow-lg z-10">
+          <div 
+          ref={menuRef}
+          className="absolute top-full left-0 w-[80px] bg-opacityDarkLight rounded-xl shadow-lg z-10">
             <Button label="Home" />
             <Button label="Destaques" />
             <Button label="Produtos" />
