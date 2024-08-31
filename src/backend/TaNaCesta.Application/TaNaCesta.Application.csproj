@@ -2,6 +2,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaNaCesta.Communication\TaNaCesta.Communication.csproj" />
+    <ProjectReference Include="..\TaNaCesta.Domain\TaNaCesta.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="UseCases\Products\Get\" />
   </ItemGroup>
 
   <PropertyGroup>
