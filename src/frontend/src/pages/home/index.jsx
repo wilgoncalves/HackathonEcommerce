@@ -4,7 +4,7 @@ import Header from '../../sections/header'
 function Home(){
 
     return (
-        <div className='flex flex-col justify-center mt-4 items-center'>
+        <div className='flex flex-col w-full justify-center mt-4 items-center'>
             <NavBar />
             <Header />
         </div>
