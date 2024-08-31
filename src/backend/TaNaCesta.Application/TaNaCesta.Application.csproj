@@ -2,6 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TaNaCesta.Communication\TaNaCesta.Communication.csproj" />
+    <ProjectReference Include="..\TaNaCesta.Domain\TaNaCesta.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.9.2" />
   </ItemGroup>
 
   <PropertyGroup>
