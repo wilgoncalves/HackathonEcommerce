@@ -25,7 +25,7 @@ namespace TaNaCesta.Application.UseCases.Products.Save
             {
                 Category category = new Category();
 
-                if (!request.CategoryId.HasValue)
+                if (!request.CategoryId.HasValue || request.CategoryId == 0)
                 {
                     throw new DomainException("Categoria não informada");
                 }
@@ -34,9 +34,9 @@ namespace TaNaCesta.Application.UseCases.Products.Save
                     category = await _productRepository.GetCategoryById(request.CategoryId.Value);
                 }
 
-                if (!request.Id.HasValue)
+                if (!request.Id.HasValue || request.Id == 0)
                 {
-                    Product product = new(
+                   Product product = new(
                         name: request.Name,
                         unit: request.Unit,
                         price: request.Price,
@@ -54,13 +54,12 @@ namespace TaNaCesta.Application.UseCases.Products.Save
                 }
                 else
                 {
-                    Product product = new(
-                         name: request.Name,
-                         unit: request.Unit,
-                         price: request.Price,
-                         stockQuantity: request.StockQuantity,
-                         category: category
-                     );
+                    Product product = await _productRepository.GetProductById(request.Id.Value);
+
+                    product.Name = request.Name;
+                    product.Price = request.Price;
+                    product.StockQuantity = request.StockQuantity;
+                    product.Category = category;
 
                     _productRepository.UpdateProduct(product);
                     return new ResponseSavedProductJson
