@@ -14,6 +14,8 @@ export default {
         primaryGreen: 'var(--primary-green-color)',
         secondaryGreen: 'var(--secondary-green-color)',
         redNormal: 'var(--red-normal)',
+        darkRed: 'var(--dark-red)',
+        darkerRed: 'var(--darker-red)', 
         blackNormal: 'var(--black-normal)',
         whiteNormal: 'var(--white-normal)',
         whatsappColor: 'var(--whatsapp-color)',
