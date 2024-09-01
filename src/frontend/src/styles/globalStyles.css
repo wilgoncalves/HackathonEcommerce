@@ -17,7 +17,11 @@
     --whatsapp-color: #2bcb04;
     --dark-light-color: #EAEAEA;
     --dark-fade-color: #A8A8A8;
+    --opacityDarkLight: rgba(234,234,234,0.75);
     }
     body{
         color: var(--black-normal);
+        img{
+            width: 100%;
+        }
     }
