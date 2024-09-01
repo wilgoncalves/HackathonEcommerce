@@ -29,7 +29,12 @@ namespace TaNaCesta.Infrastructure.Repository
             _context.Products.Add(product);
             _context.SaveChanges();
         }
-   
+        public async Task<Product> GetProductById(int id)
+        {
+            var product = await _context.Products.FirstOrDefaultAsync(x => x.Id == id);
+            return product;
+        }
+
         public async Task<Category> GetCategoryById(int id)
         {
             var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
@@ -52,5 +57,7 @@ namespace TaNaCesta.Infrastructure.Repository
         {
             _context?.Dispose();
         }
+
+        
     }
 }

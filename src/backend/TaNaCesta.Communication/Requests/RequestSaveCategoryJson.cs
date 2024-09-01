@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace TaNaCesta.Communication.Requests
 {
-    public class RequestSaveProductJson
+    public class RequestSaveCategoryJson
     {
         public int? Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public int Unit { get; set; } 
-        public decimal Price { get; set; } 
-        public int StockQuantity { get; set; }
-        public int? CategoryId { get; set; }
     }
 }

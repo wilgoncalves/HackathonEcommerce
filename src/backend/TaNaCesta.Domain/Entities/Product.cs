@@ -16,7 +16,7 @@ namespace TaNaCesta.Domain.Entities
         public bool Active { get; set; }
 
         protected Product(){}
-        public Product(string name, int unit, decimal price, int stockQuantity, Category category)
+        public Product(string name, int unit, decimal price, int stockQuantity, Category category) : base()
         {
             Name = name;
             Unit = unit;
