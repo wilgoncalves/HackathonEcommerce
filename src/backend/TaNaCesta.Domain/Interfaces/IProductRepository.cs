@@ -13,6 +13,7 @@ namespace TaNaCesta.Domain.Interfaces
         void UpdateProduct(Product product);
 
         Task<Category> GetCategoryById(int id);
+        Task<Product> GetProductById(int id);
         void AddCategory(Category category);
         void UpdateCategory(Category category);
     }

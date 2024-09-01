@@ -14,6 +14,7 @@
     <ProjectReference Include="..\TaNaCesta.Domain\TaNaCesta.Domain.csproj" />
     <ProjectReference Include="..\TaNaCesta.Communication\TaNaCesta.Communication.csproj" />
     <ProjectReference Include="..\TaNaCesta.Application\TaNaCesta.Application.csproj" />
+    <ProjectReference Include="..\TaNaCesta.Infrastructure\TaNaCesta.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

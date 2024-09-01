@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using TaNaCesta.Domain.Entities;
+using TaNaCesta.Infrastructure.Mapping;
 
 namespace TaNaCesta.Infrastructure.DataAccess
 {
@@ -15,7 +16,8 @@ namespace TaNaCesta.Infrastructure.DataAccess
         public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfigurationsFromAssembly(typeof(TaNaCestaDbContext).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductMapping).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryMapping).Assembly);
         }
     }
 }
