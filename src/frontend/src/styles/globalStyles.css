@@ -11,7 +11,10 @@
 :root {
     --primary-green-color: #159959;
     --secondary-green-color: #0a542e;
+    --darker-green: #094125;
     --red-normal: #d72929;
+    /* --dark-red: #841018; */
+    /* --darker-red: #490a0e; */
     --black-normal: #393939;
     --white-normal: #ffffff;
     --whatsapp-color: #2bcb04;
