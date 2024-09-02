@@ -21,9 +21,9 @@ namespace TaNaCesta.Application.UseCases.Products.Save
             _mapper = mapper;
         }
 
-        public async Task<ResponseSavedProductJson> Execute(RequestSaveProductJson request)
+        public async Task<ResponseProductJson> Execute(RequestProductJson request)
         {
-            ResponseSavedProductJson response = await Validate(request);
+            ResponseProductJson response = await Validate(request);
             Category category = new Category();
             try
             {
@@ -37,7 +37,7 @@ namespace TaNaCesta.Application.UseCases.Products.Save
                     Product product = _mapper.Map<Product>(request);
                     product.Category = category;
                     _productRepository.AddProduct(product);
-                    return response = _mapper.Map<ResponseSavedProductJson>(product);
+                    return response = _mapper.Map<ResponseProductJson>(product);
                 }
                 else
                 {
@@ -46,7 +46,7 @@ namespace TaNaCesta.Application.UseCases.Products.Save
                     product.Category = category;
 
                     _productRepository.UpdateProduct(product);
-                    return response = _mapper.Map<ResponseSavedProductJson>(product);
+                    return response = _mapper.Map<ResponseProductJson>(product);
                 }
             }
             catch (Exception)
@@ -56,9 +56,9 @@ namespace TaNaCesta.Application.UseCases.Products.Save
 
         }
 
-        private async Task<ResponseSavedProductJson> Validate(RequestSaveProductJson request)
+        private async Task<ResponseProductJson> Validate(RequestProductJson request)
         {
-            ResponseSavedProductJson response = new();
+            ResponseProductJson response = new();
             var validator = new SaveProductValidator();
             ValidationResult result = await validator.ValidateAsync(request);
             if (!result.IsValid)

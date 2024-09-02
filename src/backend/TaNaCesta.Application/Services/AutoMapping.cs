@@ -18,8 +18,12 @@ namespace TaNaCesta.Application.Services
             CreateMap<RequestRegisterUserJson, Domain.Entities.User>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore());
 
-            CreateMap<RequestSaveProductJson, Domain.Entities.Product>();
-            CreateMap<Domain.Entities.Product, ResponseSavedProductJson>();
+            CreateMap<RequestProductJson, Domain.Entities.Product>();
+            CreateMap<Domain.Entities.Product, ResponseProductJson>();
+            CreateMap<Domain.Entities.Product, ResponseProductJson>();
+            CreateMap<Domain.Entities.Category, ResponseCategoryJson>();
+            CreateMap<ResponseCategoryJson, Domain.Entities.Category>();
+
         }
     }
 }

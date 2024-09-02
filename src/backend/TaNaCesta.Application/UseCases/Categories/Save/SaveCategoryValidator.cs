@@ -8,7 +8,7 @@ using TaNaCesta.Communication.Requests;
 
 namespace TaNaCesta.Application.UseCases.Categories.Save
 {
-    public class SaveCategoryValidator : AbstractValidator<RequestSaveCategoryJson>
+    public class SaveCategoryValidator : AbstractValidator<RequestCategoryJson>
     {
         public static string NameRequiredError => "O nome da categoria deve ter entre 3 e 100 caracteres.";
         public SaveCategoryValidator()

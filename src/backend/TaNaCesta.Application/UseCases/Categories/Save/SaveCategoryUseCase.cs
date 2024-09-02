@@ -22,18 +22,16 @@ namespace TaNaCesta.Application.UseCases.Categories.Save
             _productRepository = productRepository;
         }
 
-        public async Task<ResponseSavedCategoryJson> Execute(RequestSaveCategoryJson request)
+        public async Task<ResponseCategoryJson> Execute(RequestCategoryJson request)
         {
-            ResponseSavedCategoryJson response = await Validate(request);
+            ResponseCategoryJson response = await Validate(request);
             try
             {
                 if (response.Errors.Any()) throw new Exception();
                 Category category = new();
                 category.SetName(request.Name);
-                if (request == null) throw new DomainException("Erro no servidor");
                 if (!request.Id.HasValue || request.Id == 0)
                 {
-                    category.Id = null;
                     _productRepository.AddCategory(category);
                 }
                 else
@@ -48,9 +46,9 @@ namespace TaNaCesta.Application.UseCases.Categories.Save
                 return response;
             }
         }
-        private async Task<ResponseSavedCategoryJson> Validate(RequestSaveCategoryJson request)
+        private async Task<ResponseCategoryJson> Validate(RequestCategoryJson request)
         {
-            ResponseSavedCategoryJson response = new();
+            ResponseCategoryJson response = new();
             var validator = new SaveCategoryValidator();
             ValidationResult result = await validator.ValidateAsync(request);
             if (!result.IsValid)

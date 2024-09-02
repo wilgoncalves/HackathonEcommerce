@@ -9,6 +9,11 @@ namespace TaNaCesta.Communication.Responses
 {
     public class ResponseBase
     {
-        public List<JsonArray> Errors { get; set; } = new List<JsonArray>();
+        public List<JsonArray>? Errors { get; set; } 
+
+        protected ResponseBase()
+        {
+            Errors = new List<JsonArray>();
+        }
     }
 }

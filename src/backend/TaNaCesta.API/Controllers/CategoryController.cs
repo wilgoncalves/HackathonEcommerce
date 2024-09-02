@@ -6,12 +6,12 @@ using TaNaCesta.Domain.Exceptions;
 
 namespace TaNaCesta.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/")]
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        [HttpPost]
-        public async Task<IActionResult> Save([FromServices] ISaveCategoryUseCase service, [FromBody] RequestSaveCategoryJson request)
+        [HttpPost("categories/")]
+        public async Task<IActionResult> Save([FromServices] ISaveCategoryUseCase service, [FromBody] RequestCategoryJson request)
         {
             var result = service.Execute(request).Result;
             if (result.Errors.Any())

@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TaNaCesta.Communication.Responses
+namespace TaNaCesta.Communication.Requests
 {
-    public class ResponseSavedProductJson : ResponseBase
+    public class RequestCategoryJson
     {
+        public int? Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public decimal Price { get; set; }
     }
 }

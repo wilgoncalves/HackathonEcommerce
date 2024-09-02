@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace TaNaCesta.Communication.Responses
 {
-    public class ResponseSavedCategoryJson : ResponseBase
+    public class ResponseCategoryJson : ResponseBase
     {
+        public int? Id { get; set; } = 0;
         public string Name { get; set; } = string.Empty;
     }
 }
