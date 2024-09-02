@@ -1,82 +1,73 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaNaCesta.Communication.Requests;
+﻿using TaNaCesta.Communication.Requests;
 using TaNaCesta.Communication.Responses;
 using TaNaCesta.Domain.Interfaces;
 using TaNaCesta.Domain.Entities;
 using TaNaCesta.Domain.Exceptions;
+using AutoMapper;
+using FluentValidation;
+using FluentValidation.Results;
+using System.Text.Json;
+using System.Text.Json.Nodes;
 
 namespace TaNaCesta.Application.UseCases.Products.Save
 {
     public class SaveProductUseCase : ISaveProductUseCase
     {
         private readonly IProductRepository _productRepository;
-        public SaveProductUseCase(IProductRepository productRepository)
+        private readonly IMapper _mapper;
+        public SaveProductUseCase(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
+            _mapper = mapper;
         }
 
         public async Task<ResponseSavedProductJson> Execute(RequestSaveProductJson request)
         {
+            ResponseSavedProductJson response = await Validate(request);
+            Category category = new Category();
             try
             {
-                Category category = new Category();
+                if (response.Errors.Any()) { throw new Exception(); }
 
-                if (!request.CategoryId.HasValue || request.CategoryId == 0)
-                {
-                    throw new DomainException("Categoria não informada");
-                }
-                else
-                {
-                    category = await _productRepository.GetCategoryById(request.CategoryId.Value);
-                }
 
+                category = await _productRepository.GetCategoryById(request.CategoryId.Value);
+                
                 if (!request.Id.HasValue || request.Id == 0)
                 {
-                   Product product = new(
-                        name: request.Name,
-                        unit: request.Unit,
-                        price: request.Price,
-                        stockQuantity: request.StockQuantity,
-                        category: category
-                    );
-
+                    Product product = _mapper.Map<Product>(request);
+                    product.Category = category;
                     _productRepository.AddProduct(product);
-
-                    return new ResponseSavedProductJson
-                    {
-                        Name = request.Name,
-                        Price = request.Price,
-                    };
+                    return response = _mapper.Map<ResponseSavedProductJson>(product);
                 }
                 else
                 {
                     Product product = await _productRepository.GetProductById(request.Id.Value);
-
-                    product.Name = request.Name;
-                    product.Price = request.Price;
-                    product.StockQuantity = request.StockQuantity;
+                    product = _mapper.Map<Product>(request);
                     product.Category = category;
 
                     _productRepository.UpdateProduct(product);
-                    return new ResponseSavedProductJson
-                    {
-                        Name = request.Name,
-                        Price = request.Price,
-                    };
+                    return response = _mapper.Map<ResponseSavedProductJson>(product);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return new ResponseSavedProductJson
-                {
-                    Errors = new List<string> { ex.Message }
-                };
+                return response;
             }
 
+        }
+
+        private async Task<ResponseSavedProductJson> Validate(RequestSaveProductJson request)
+        {
+            ResponseSavedProductJson response = new();
+            var validator = new SaveProductValidator();
+            ValidationResult result = await validator.ValidateAsync(request);
+            if (!result.IsValid)
+            {
+                var errors = result.Errors.Select(x => new JsonArray { x.PropertyName, new { x.ErrorMessage } }).ToList();
+                response.Errors = errors;
+                return response;
+            }
+            return response;
         }
     }
 }

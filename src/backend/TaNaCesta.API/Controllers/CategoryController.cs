@@ -11,21 +11,14 @@ namespace TaNaCesta.API.Controllers
     public class CategoryController : ControllerBase
     {
         [HttpPost]
-        public async Task<IActionResult> Save([FromServices] ISaveCategoryUseCase service, [FromBody] RequestSaveCategoryJson request) 
+        public async Task<IActionResult> Save([FromServices] ISaveCategoryUseCase service, [FromBody] RequestSaveCategoryJson request)
         {
-            try
+            var result = service.Execute(request).Result;
+            if (result.Errors.Any())
             {
-                var result = service.Execute(request).Result;
-                if(result.Errors.Any())
-                {
-                    throw new DomainException(result.Errors.First());
-                }
-                return Ok(result);
+                return BadRequest(result.Errors);
             }
-            catch (Exception e)
-            {
-                return BadRequest(e);
-            }
+            return Ok(result);
         }
     }
 }

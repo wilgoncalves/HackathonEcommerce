@@ -6,6 +6,7 @@ using TaNaCesta.Infrastructure.DataAccess;
 using TaNaCesta.Domain.Interfaces;
 using TaNaCesta.Infrastructure.Repository;
 using TaNaCesta.Application.UseCases.Categories.Save;
+using TaNaCesta.Application.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

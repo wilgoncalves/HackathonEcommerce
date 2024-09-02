@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using AutoMapper;
 using TaNaCesta.Communication.Requests;
+using TaNaCesta.Communication.Responses;
 
 namespace TaNaCesta.Application.Services
 {
@@ -16,6 +17,9 @@ namespace TaNaCesta.Application.Services
         {
             CreateMap<RequestRegisterUserJson, Domain.Entities.User>()
                 .ForMember(dest => dest.Password, opt => opt.Ignore());
+
+            CreateMap<RequestSaveProductJson, Domain.Entities.Product>();
+            CreateMap<Domain.Entities.Product, ResponseSavedProductJson>();
         }
     }
 }
