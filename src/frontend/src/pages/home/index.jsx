@@ -1,20 +1,34 @@
-import NavBar from '../../sections/navBar'
-import Header from '../../sections/header'
-import Hightlights from '../../sections/highlights'
-import CartButton from '../../components/cart';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "../../sections/navBar";
+import Header from "../../sections/header";
+import Highlights from "../../sections/highlights";
+import CartButton from "../../components/cart";
+import LoginPage from "../../pages/login";
+import SignupPage from "../../pages/cad-user";
 
-function Home(){
+function Home() {
+  const itemCount = 5;
 
-    const itemCount = 5;
-
-    return (
-        <div className='flex flex-col w-full justify-center mt-4 items-center'>
-            <CartButton itemCount={itemCount} />
-            <NavBar />
-            <Header />
-            <Hightlights />
-        </div>
-    )
+  return (
+    <div className="flex flex-col w-full justify-center mt-4 items-center">
+      <CartButton itemCount={itemCount} />
+      <NavBar />
+      <Header />
+      <Highlights />
+    </div>
+  );
 }
 
-export default Home
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/signup" element={<SignupPage />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
