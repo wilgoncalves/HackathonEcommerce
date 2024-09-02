@@ -1,4 +1,4 @@
-CREATE TABLE USERS (
+CREATE TABLE Users (
     user_id int auto_increment PRIMARY KEY,
     name varchar(100) not null,
     cpf varchar(11) unique not null,
@@ -11,12 +11,12 @@ CREATE TABLE USERS (
     UNIQUE (cpf, email)
 );
 
-CREATE TABLE CATEGORIES (
+CREATE TABLE Categories (
     category_id int auto_increment PRIMARY KEY,
     name varchar(100) not null
 );
 
-CREATE TABLE PAYMENTS (
+CREATE TABLE Payments (
     payment_id int auto_increment PRIMARY KEY,
     fk_order_id int not null,
     amount decimal(10, 2) not null,
@@ -24,7 +24,7 @@ CREATE TABLE PAYMENTS (
     created_at datetime default current_timestamp
 );
 
-CREATE TABLE DELIVERY_ADDRESSES (
+CREATE TABLE DeliveryAddresses (
     delivery_address_id int auto_increment PRIMARY KEY,
     fk_user_id int not null,
     city varchar(100) not null,
@@ -35,7 +35,7 @@ CREATE TABLE DELIVERY_ADDRESSES (
     created_at datetime default current_timestamp
 );
 
-CREATE TABLE ORDERS (
+CREATE TABLE Orders (
     order_id int auto_increment PRIMARY KEY,
     fk_user_id int not null,
     total_amount decimal(10, 2) not null,
@@ -43,7 +43,7 @@ CREATE TABLE ORDERS (
     created_at datetime default current_timestamp
 );
 
-CREATE TABLE PRODUCTS (
+CREATE TABLE Products (
     product_id int auto_increment PRIMARY KEY,
     fk_category_id int not null,
     name varchar(100) not null,
@@ -54,32 +54,32 @@ CREATE TABLE PRODUCTS (
     active int default 1 not null
 );
 
-CREATE TABLE ORDER_ITEMS (
+CREATE TABLE OrderItems (
     order_items_id int auto_increment PRIMARY KEY,
     fk_order_id int not null,
     fk_product_id int not null
 );
  
-ALTER TABLE PAYMENTS ADD CONSTRAINT fk_orders_payments
+ALTER TABLE Payments ADD CONSTRAINT fk_orders_payments
     FOREIGN KEY (fk_order_id)
-    REFERENCES ORDERS (order_id);
+    REFERENCES Orders (order_id);
  
-ALTER TABLE DELIVERY_ADDRESSES ADD CONSTRAINT fk_users_delivery_addresses
+ALTER TABLE DeliveryAddresses ADD CONSTRAINT fk_users_delivery_addresses
     FOREIGN KEY (fk_user_id)
-    REFERENCES USERS (user_id);
+    REFERENCES Users (user_id);
  
-ALTER TABLE ORDERS ADD CONSTRAINT fk_users_orders
+ALTER TABLE Orders ADD CONSTRAINT fk_users_orders
     FOREIGN KEY (fk_user_id)
-    REFERENCES USERS (user_id);
+    REFERENCES Users (user_id);
  
-ALTER TABLE PRODUCTS ADD CONSTRAINT fk_categories_products
+ALTER TABLE Products ADD CONSTRAINT fk_categories_products
     FOREIGN KEY (fk_category_id)
-    REFERENCES CATEGORIES (category_id);
+    REFERENCES Categories (category_id);
  
-ALTER TABLE ORDER_ITEMS ADD CONSTRAINT fk_orders_order_items
+ALTER TABLE OrderItems ADD CONSTRAINT fk_orders_order_items
     FOREIGN KEY (fk_order_id)
-    REFERENCES ORDERS (order_id);
+    REFERENCES Orders (order_id);
  
-ALTER TABLE ORDER_ITEMS ADD CONSTRAINT fk_products_order_items
+ALTER TABLE OrderItems ADD CONSTRAINT fk_products_order_items
     FOREIGN KEY (fk_product_id)
-    REFERENCES PRODUCTS (product_id);
+    REFERENCES Products (product_id);
