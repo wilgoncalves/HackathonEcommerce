@@ -13,6 +13,7 @@ const CartButton = ({ itemCount }) => {
         rounded-full p-4 shadow-lg 
         hover:scale-110
         transition-all duration-300 ease-in-out
+        z-10
       "
     >
     <TiShoppingCart />

@@ -9,10 +9,10 @@ function Home(){
 
     return (
         <div className='flex flex-col w-full justify-center mt-4 items-center'>
+            <CartButton itemCount={itemCount} />
             <NavBar />
             <Header />
             <Hightlights />
-            <CartButton itemCount={itemCount} />
         </div>
     )
 }
