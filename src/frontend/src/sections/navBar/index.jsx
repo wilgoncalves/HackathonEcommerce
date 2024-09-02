@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import Logo from '../../assets/logo-tana-cesta.png';
+import Logo from '../../assets/logo-tana-cesta2.png';
 import Button from '../../components/Button/index';
 import Searchbar from '../../components/searchBar/index';
 import { TiShoppingCart } from "react-icons/ti";
@@ -15,22 +15,20 @@ const NavbarComponent = () => {
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-      setIsMenuOpen(false);  // Fecha o menu se clicar fora dele
+      setIsMenuOpen(false); 
     }
   };
 
   useEffect(() => {
-    // Adiciona o event listener ao montar o componente
     document.addEventListener('mousedown', handleClickOutside);
     
-    // Remove o event listener ao desmontar o componente
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
 
   return (
-    <div className='flex flex-row md:flex-row gap-2 w-full md:w-[95%] justify-between items-center p-4'>
+    <div className='flex flex-row-reverse md:flex-row gap-2 w-full md:w-[95%] justify-between items-center p-4'>
       <div className='hidden lg:block w-[250px] lg:w-[350px]'>
         <img src={Logo} alt="Logo Tá na Cesta" />
       </div>
@@ -43,7 +41,7 @@ const NavbarComponent = () => {
         {isMenuOpen && (
           <div 
           ref={menuRef}
-          className="absolute top-full left-0 w-[80px] bg-opacityDarkLight rounded-xl shadow-lg z-10">
+          className="absolute top-[40px] right-0 w-[80px] bg-opacityDarkLight rounded-xl shadow-lg z-10">
             <Button label="Home" />
             <Button label="Destaques" />
             <Button label="Produtos" />
