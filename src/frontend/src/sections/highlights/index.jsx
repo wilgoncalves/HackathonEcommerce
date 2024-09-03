@@ -1,20 +1,23 @@
 import ScrollingBanner from "../../components/ScrollingBanner";
+import { FaPlus } from "react-icons/fa";
+
+
 import { highlights } from "../../Data";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
-import "swiper/css/pagination";
+import 'swiper/css/navigation';
 
-import { Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 const Hightlights = () => {
   return (
-    <div className="flex flex-col w-full md:w-full mt-6 md:mt-10 lg:mt-20 items-center bg-darkerGreen">
+    <div className="flex flex-col w-full md:w-full mt-6 pb-11 md:mt-10 lg:mt-20 items-center bg-darkerGreen">
       <div className="bg-gradient-to-r from-primaryGreen via-primaryGreen to-secondaryGreen w-full font-outfit font-semibold px-4 md:px-8 py-5 text-whiteNormal text-center">
         <ScrollingBanner />
       </div>
-      <div className="flex flex-col w-full md:w-[95%] mt-6 md:mt-10 lg:mt-20">
+      <div className="flex flex-col w-[95%] mt-6 md:mt-10 lg:mt-20">
         <div className="highlights">
           <h2
             id="destaques"
@@ -25,39 +28,43 @@ const Hightlights = () => {
           <Swiper
             slidesPerView={2}
             spaceBetween={10}
-            pagination={{
-              clickable: true,
-            }}
+            navigation={true}
             breakpoints={{
-              540: {
+              350: {
                 slidesPerView: 1,
                 spaceBetween: 30,
               },
-              768: {
+              744: {
                 slidesPerView: 2,
                 spaceBetween: 30,
               },
               1200: {
-                slidesPerView: 3,
+                slidesPerView: 2,
                 spaceBetween: 40,
               },
             }}
-            modules={[Pagination]}
+            modules={[Navigation]}
             className="mySwiper highlight-products"
           >
-            {highlights.map(({ name, price, description }, index) => (
+            {highlights.map(({ name, price, image, description }, index) => (
               <SwiperSlide
                 key={index}
-                className="product-container bg-whiteNormal px-2 lg:px-4 py-2 font-outfit font-medium text-[14px] lg:text-[16px] xl:text-[20px] text-black-normal rounded"
+                className="product-container bg-whiteNormal lg:px-4 py-2 font-outfit font-medium text-[14px] lg:text-[16px] xl:text-[20px] text-black-normal rounded-lg"
               >
-                <div className="flex flex-row">
-                  <div className="product-info">
-                    <h3>{name}</h3>
-                    <span>{description}</span>
-                    <div className="product-price">{price}</div>
+                <div className="flex flex-row p-7 items-center space-x-6">
+                  <div className="product-info space-y-3 w-[70%]">
+                    <h3 className="font-bold">{name}</h3>
+                    <p className="text-darkFadeColor text-[14px] ">{description}</p>
+                    <hr className="text-darkFadeColor"></hr>
+                    <div className="flex items-center space-x-3">
+                      <p className="product-price font-bold text-2xl">R${price}</p>
+                      <div className="bg-redNormal p-2 rounded-full">
+                        <FaPlus className="text-whiteNormal" />
+                      </div>
+                    </div>
                   </div>
                   <div className="product-image">
-                    <img src="../." alt="" />
+                    <img src={(`./src/assets/products/${image}`)} alt="" />
                   </div>
                 </div>
               </SwiperSlide>
