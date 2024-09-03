@@ -5,10 +5,15 @@ CREATE TABLE Users (
     email varchar(100) unique not null,
     phone_number varchar(15) not null,
     password varchar(2000) not null,
-    role enum('client', 'admin'),
+    fk_role_id int(11),
     created_at datetime default current_timestamp,
     active int default 1 not null,
     UNIQUE (cpf, email)
+);
+
+CREATE TABLE Roles (
+    role_id int auto_increment PRIMARY KEY,
+    name varchar(100) not null
 );
 
 CREATE TABLE Categories (
@@ -59,6 +64,10 @@ CREATE TABLE OrderItems (
     fk_order_id int not null,
     fk_product_id int not null
 );
+
+ALTER TABLE Users ADD CONSTRAINT fk_roles_users
+    FOREIGN KEY (fk_role_id)
+    REFERENCES Roles (role_id);
  
 ALTER TABLE Payments ADD CONSTRAINT fk_orders_payments
     FOREIGN KEY (fk_order_id)
