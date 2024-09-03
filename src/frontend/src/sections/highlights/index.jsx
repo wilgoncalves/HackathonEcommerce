@@ -1,9 +1,7 @@
 import ScrollingBanner from "../../components/ScrollingBanner";
 import { FaPlus } from "react-icons/fa";
 
-
 import { highlights } from "../../Data";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -14,10 +12,10 @@ import { Navigation } from "swiper/modules";
 const Hightlights = () => {
   return (
     <div className="flex flex-col w-full md:w-full mt-6 pb-11 md:mt-10 lg:mt-20 items-center bg-darkerGreen">
-      <div className="bg-gradient-to-r from-primaryGreen via-primaryGreen to-secondaryGreen w-full font-outfit font-semibold px-4 md:px-8 py-5 text-whiteNormal text-center">
+      <div className="bg-gradient-to-r from-primaryGreen via-primaryGreen to-secondaryGreen w-full font-outfit font-semibold py-5 text-whiteNormal text-center">
         <ScrollingBanner />
       </div>
-      <div className="flex flex-col w-[95%] mt-6 md:mt-10 lg:mt-20">
+      <div className="flex flex-col w-[90%] mt-6 md:mt-10 lg:mt-15">
         <div className="highlights">
           <h2
             id="destaques"

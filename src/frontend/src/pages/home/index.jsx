@@ -5,6 +5,7 @@ import Highlights from "../../sections/highlights";
 import CartButton from "../../components/cart";
 import LoginPage from "../../pages/login";
 import SignupPage from "../../pages/cad-user";
+import Catalog from "../../sections/catalog";
 
 function Home() {
   const itemCount = 5;
@@ -15,6 +16,7 @@ function Home() {
       <NavBar />
       <Header />
       <Highlights />
+      <Catalog />
     </div>
   );
 }
