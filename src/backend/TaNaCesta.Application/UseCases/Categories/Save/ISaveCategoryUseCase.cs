@@ -10,6 +10,6 @@ namespace TaNaCesta.Application.UseCases.Categories.Save
 {
     public interface ISaveCategoryUseCase
     {
-        Task<ResponseSavedCategoryJson> Execute(RequestSaveCategoryJson request);
+        Task<ResponseCategoryJson> Execute(RequestCategoryJson request);
     }
 }

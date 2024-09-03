@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 using TaNaCesta.Communication.Requests;
 using TaNaCesta.Communication.Responses;
 
-namespace TaNaCesta.Application.UseCases.Products.Save
+namespace TaNaCesta.Application.UseCases.Products.Get
 {
-    public interface ISaveProductUseCase
+    public interface  IGetProductUsecase
     {
-        Task<ResponseProductJson> Execute(RequestProductJson request);
+        Task<ResponseProductJson> GetProductById(int id);
+
+        Task<ResponseGetAllProductsJson> GetAllProjects();
+
     }
 }
