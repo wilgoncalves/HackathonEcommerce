@@ -5,6 +5,7 @@ import Highlights from "../../sections/highlights";
 import CartButton from "../../components/cart";
 import LoginPage from "../../pages/login";
 import SignupPage from "../../pages/createUser";
+import Catalog from "../../sections/catalog";
 import CartPage from "../../pages/cart";
 
 function Home() {
@@ -16,6 +17,7 @@ function Home() {
       <NavBar />
       <Header />
       <Highlights />
+      <Catalog />
     </div>
   );
 }

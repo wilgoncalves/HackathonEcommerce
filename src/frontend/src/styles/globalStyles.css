@@ -28,3 +28,23 @@
             width: 100%;
         }
     }
+
+    .swiper-button-prev {
+        left: 0 !important;
+        background-color: red;
+        padding-inline: 20px;
+        border-radius: 50%;
+    }
+
+    .swiper-button-next {
+        right: 0 !important;
+        background-color: red;
+        padding-inline: 22px;
+        border-radius: 50%;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 1.2rem !important;
+        color: white;
+    }
