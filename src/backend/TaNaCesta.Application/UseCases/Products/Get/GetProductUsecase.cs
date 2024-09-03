@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TaNaCesta.Communication.Responses;
 using TaNaCesta.Domain.Entities;
+using TaNaCesta.Domain.Exceptions;
 using TaNaCesta.Domain.Interfaces;
 
 namespace TaNaCesta.Application.UseCases.Products.Get
@@ -24,48 +25,30 @@ namespace TaNaCesta.Application.UseCases.Products.Get
         public async Task<ResponseGetAllProductsJson> GetAllProjects()
         {
             ResponseGetAllProductsJson response = new();
-            try
+            var products = await _productRepository.GetAllProducts();
+            if (products != null && products.Any() && products is List<Product>)
             {
-                var products = await _productRepository.GetAllProducts();
-                if(products != null && products.Any() && products is List<Product>)
-                {
-                    response.Products = products.Select(_mapper.Map<Product, ResponseProductJson>).ToList();
-                    return response;
-                }
-                response.Errors.Add(new System.Text.Json.Nodes.JsonArray { "Nenhum produto encontrado." });
-                throw new Exception();
-            }
-            catch (Exception)
-            {
+                response.Products = products.Select(_mapper.Map<Product, ResponseProductJson>).ToList();
                 return response;
             }
+            throw new EntityNotFoundException("Produtos não encontrados");
         }
 
         public async Task<ResponseProductJson> GetProductById(int id)
         {
             ResponseProductJson response = new();
-            try
-            {
-                var product = await _productRepository.GetProductById(id);
-                if (product != null && product is Product)
-                {
-                    var categoryId = product.Category.Id;
-                    var category = await _productRepository.GetCategoryById(categoryId);
-                    product.Category = category;
 
-                    response = _mapper.Map(product, response);
-                    response.CategoryId = categoryId;
-                    response.Category = _mapper.Map(category, response.Category);
-                    return response;
-                }
-                response.Errors.Add(new System.Text.Json.Nodes.JsonArray { "Produto não encontrado. "});
-                throw new Exception();
-            }
-            catch (Exception)
+            var product = await _productRepository.GetProductById(id);
+            if (product != null && product is Product)
             {
-
+                var category = await _productRepository.GetCategoryById(product.Category!.Id);
+                product.Category = category;
+                response = _mapper.Map(product, response);
+                response.CategoryId = product.Category.Id;
+                response.Category = _mapper.Map(category, response.Category);
                 return response;
             }
+            throw new EntityNotFoundException("Produto não encontrado.");
         }
     }
 }

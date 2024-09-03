@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TaNaCesta.Communication.Requests;
-
-namespace TaNaCesta.Communication.Responses
+﻿namespace TaNaCesta.Communication.Responses
 {
-    public class ResponseProductJson : ResponseBase
+    public class ResponseProductJson
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
