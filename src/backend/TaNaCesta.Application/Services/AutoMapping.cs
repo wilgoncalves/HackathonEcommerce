@@ -22,7 +22,7 @@ namespace TaNaCesta.Application.Services
             CreateMap<Domain.Entities.Product, ResponseProductJson>();
             CreateMap<Domain.Entities.Product, ResponseProductJson>();
             CreateMap<Domain.Entities.Category, ResponseCategoryJson>();
-            CreateMap<ResponseCategoryJson, Domain.Entities.Category>();
+            CreateMap<RequestCategoryJson, Domain.Entities.Category>();
 
         }
     }

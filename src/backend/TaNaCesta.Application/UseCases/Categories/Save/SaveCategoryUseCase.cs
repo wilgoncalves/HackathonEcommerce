@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using AutoMapper;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,47 +18,42 @@ namespace TaNaCesta.Application.UseCases.Categories.Save
     public class SaveCategoryUseCase : ISaveCategoryUseCase
     {
         private readonly IProductRepository _productRepository;
-        public SaveCategoryUseCase(IProductRepository productRepository)
+        private readonly IMapper _mapper;
+        public SaveCategoryUseCase(IProductRepository productRepository, IMapper mapper)
         {
             _productRepository = productRepository;
+            _mapper = mapper;
         }
 
         public async Task<ResponseCategoryJson> Execute(RequestCategoryJson request)
         {
-            ResponseCategoryJson response = await Validate(request);
-            try
+            Validate(request);
+            Category category = _mapper.Map<Category>(request);
+
+            if (!request.Id.HasValue || request.Id == 0)
             {
-                if (response.Errors.Any()) throw new Exception();
-                Category category = new();
-                category.SetName(request.Name);
-                if (!request.Id.HasValue || request.Id == 0)
-                {
-                    _productRepository.AddCategory(category);
-                }
-                else
-                {
-                    category = await _productRepository.GetCategoryById((int)request.Id);
-                    _productRepository.UpdateCategory(category);
-                }
-                return response;
+                _productRepository.AddCategory(category);
             }
-            catch (Exception)
+            else
             {
-                return response;
+                Category categoryStored = await _productRepository.GetCategoryById((int)request.Id);
+                if (categoryStored is not Category || categoryStored is null)
+                    throw new EntityNotFoundException("Categoria não encontrada");
+                category.Id = categoryStored.Id;
+                _productRepository.UpdateCategory(category);
             }
+
+            return new ResponseCategoryJson { Name = category.Name };
         }
-        private async Task<ResponseCategoryJson> Validate(RequestCategoryJson request)
+        private async void Validate(RequestCategoryJson request)
         {
-            ResponseCategoryJson response = new();
             var validator = new SaveCategoryValidator();
             ValidationResult result = await validator.ValidateAsync(request);
             if (!result.IsValid)
             {
-                var errors = result.Errors.Select(x => new JsonArray { x.PropertyName, new { x.ErrorMessage } }).ToList();
-                response.Errors = errors;
-                return response;
+                var errors = result.Errors.Select(x => x.ErrorMessage).ToList();
+                throw new ErrorOnValidationException(errors);
             }
-            return response;
         }
     }
 }

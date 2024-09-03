@@ -14,11 +14,7 @@ namespace TaNaCesta.API.Controllers
         public async Task<IActionResult> Save([FromServices] ISaveCategoryUseCase service, [FromBody] RequestCategoryJson request)
         {
             var result = service.Execute(request).Result;
-            if (result.Errors.Any())
-            {
-                return BadRequest(result.Errors);
-            }
-            return Ok(result);
+            return Created("", result);
         }
     }
 }

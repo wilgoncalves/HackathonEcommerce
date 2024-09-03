@@ -38,7 +38,7 @@ namespace TaNaCesta.Application.UseCases.Products.Save
             {
                 Product productStored = await _productRepository.GetProductById(request.Id.Value);                
                 if(productStored is not Product || productStored is null) 
-                    throw new ErrorOnValidationException(new List<string> {"Produto não encontrado."});
+                    throw new EntityNotFoundException("Produto não encontrado."); 
                 productStored = _mapper.Map<Product>(request);
                 productStored.Category = category;
                 _productRepository.UpdateProduct(productStored);
@@ -51,11 +51,10 @@ namespace TaNaCesta.Application.UseCases.Products.Save
         {
             var validator = new SaveProductValidator();
             ValidationResult result = await validator.ValidateAsync(request);
-            if(category.Id.Equals(0) || category.Name.Length == 0)
-            {
-                result.Errors.Add(new ValidationFailure("Category", "Categoria não informada."));
-            }
 
+            if(category.Id.Equals(0) || category.Name.Length == 0)            
+                result.Errors.Add(new ValidationFailure("Category", "Categoria não informada."));
+            
             if (!result.IsValid)
             {
                 var errors = result.Errors.Select(x => x.ErrorMessage).ToList();
