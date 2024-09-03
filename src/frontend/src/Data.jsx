@@ -20,4 +20,18 @@ export const highlights = [
     description:
       'Lorem ipsum dolor sit amet',
   },
+  {
+    id: 4,
+    name: 'Laranja (kg)',
+    price: '30,00',
+    description:
+      'Lorem ipsum dolor sit amet',
+  },
+  {
+    id: 5,
+    name: 'Banana (kg)',
+    price: '30,00',
+    description:
+      'Lorem ipsum dolor sit amet',
+  },
 ];

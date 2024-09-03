@@ -1,3 +1,4 @@
+using System.ComponentModel.DataAnnotations.Schema;
 using TaNaCesta.Domain.Enums;
 
 namespace TaNaCesta.Domain.Entities
