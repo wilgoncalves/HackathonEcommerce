@@ -4,7 +4,8 @@ import Header from "../../sections/header";
 import Highlights from "../../sections/highlights";
 import CartButton from "../../components/cart";
 import LoginPage from "../../pages/login";
-import SignupPage from "../../pages/cad-user";
+import SignupPage from "../../pages/createUser";
+import CartPage from "../../pages/cart";
 
 function Home() {
   const itemCount = 5;
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/carrinho" element={<CartPage />} />
       </Routes>
     </Router>
   );
