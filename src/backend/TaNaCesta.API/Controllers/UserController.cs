@@ -3,6 +3,8 @@ using TaNaCesta.Communication.Requests;
 using TaNaCesta.Communication.Responses;
 using TaNaCesta.Application.UseCases.User.Register;
 using TaNaCesta.Application.UseCases.User.Get;
+using TaNaCesta.Application.UseCases.User.Put;
+using TaNaCesta.Domain.Entities;
 
 namespace TaNaCesta.API.Controllers
 {
@@ -31,6 +33,17 @@ namespace TaNaCesta.API.Controllers
             var user = await useCase.Execute(id);
             return Ok(user);
         }
-        
+
+        [HttpPut]
+        [Route("{id}")]
+        [ProducesResponseType(typeof(ResponseRegisteredUserJson), StatusCodes.Status200OK)]
+        public async Task<IActionResult> PutByIdAsync(
+            [FromServices] IPutUserByIdUseCase useCase, 
+            [FromRoute] int id,
+            [FromBody] RequestRegisterUserJson request)
+        {
+            var user = await useCase.Execute(id, request);
+            return Ok(user);
+        }
     }
 }
