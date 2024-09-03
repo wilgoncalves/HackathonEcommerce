@@ -21,14 +21,14 @@ namespace TaNaCesta.Infrastructure.Repository
         
         public void AddProduct(Product product)
         {
-            _context.Products.Add(product);
+            _context.Products!.Add(product);
             _context.SaveChanges();
         }
 
         public async Task<List<Product>> GetAllProducts()
         {
             var query = from product in _context.Products
-                        join category in _context.Categories on product.Category.Id equals category.Id into grouping
+                        join category in _context.Categories! on product.Category!.Id equals category.Id into grouping
                         from category in grouping.DefaultIfEmpty()
                         select new { product, category };
                         
@@ -44,7 +44,7 @@ namespace TaNaCesta.Infrastructure.Repository
         {
             var query = from p in _context.Products
                         where p.Id == id
-                        join c in _context.Categories on p.Category.Id equals c.Id into grouping
+                        join c in _context.Categories! on p.Category!.Id equals c.Id into grouping
                         from c in grouping.DefaultIfEmpty()
                         select  new { p, c };
             Category category = await query.Select(x => x.c).FirstAsync();
@@ -56,24 +56,24 @@ namespace TaNaCesta.Infrastructure.Repository
 
         public void AddCategory(Category category)
         {
-            _context.Categories.Add(category);
+            _context.Categories!.Add(category);
             _context.SaveChanges();
         }
         public async Task<Category> GetCategoryById(int id)
         {
-            var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == id);
+            var category = await _context.Categories!.FirstOrDefaultAsync(x => x.Id == id);
             return category;
         }
 
         public void UpdateCategory(Category category)
         {
-            _context.Categories.Update(category);
+            _context.Categories!.Update(category);
             _context.SaveChanges();
         }
 
         public void UpdateProduct(Product product)
         {
-            _context.Products.Update(product);
+            _context.Products!.Update(product);
             _context.SaveChanges();
         }
         public void Dispose()

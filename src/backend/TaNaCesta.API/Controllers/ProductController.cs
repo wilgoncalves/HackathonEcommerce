@@ -13,21 +13,8 @@ namespace TaNaCesta.API.Controllers
         [HttpPost("products/save")]
         public async Task<IActionResult> Save([FromServices] ISaveProductUseCase service, [FromBody] RequestProductJson request)
         {
-            try
-            {
-                var result = service.Execute(request).Result;
-                if (result.Errors.Count() > 0)
-                {
-                    return BadRequest(result.Errors);
-                }
-                return Ok(result);
-
-            }
-            catch (Exception e)
-            {
-                return BadRequest(e.Message);
-            }
-
+            var result = service.Execute(request).Result;
+            return Created("",result);
         }
 
         [HttpGet]
@@ -37,7 +24,7 @@ namespace TaNaCesta.API.Controllers
             try
             {
                 var result = service.GetProductById(id).Result;
-                if(result.Errors.Any())
+                if (result.Errors.Any())
                 {
                     return BadRequest(result.Errors);
                 }

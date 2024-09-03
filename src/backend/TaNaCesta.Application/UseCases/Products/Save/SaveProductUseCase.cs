@@ -23,51 +23,44 @@ namespace TaNaCesta.Application.UseCases.Products.Save
 
         public async Task<ResponseProductJson> Execute(RequestProductJson request)
         {
-            ResponseProductJson response = await Validate(request);
-            Category category = new Category();
-            try
+            Category category = await _productRepository.GetCategoryById(request.CategoryId!.Value);
+
+            Validate(request, category);
+            if (!request.Id.HasValue || request.Id == 0)
             {
-                if (response.Errors.Any()) { throw new Exception(); }
-
-
-                category = await _productRepository.GetCategoryById(request.CategoryId.Value);
-                
-                if (!request.Id.HasValue || request.Id == 0)
-                {
-                    Product product = _mapper.Map<Product>(request);
-                    product.Category = category;
-                    _productRepository.AddProduct(product);
-                    return response = _mapper.Map<ResponseProductJson>(product);
-                }
-                else
-                {
-                    Product product = await _productRepository.GetProductById(request.Id.Value);
-                    product = _mapper.Map<Product>(request);
-                    product.Category = category;
-
-                    _productRepository.UpdateProduct(product);
-                    return response = _mapper.Map<ResponseProductJson>(product);
-                }
-            }
-            catch (Exception)
-            {
+                Product product = _mapper.Map<Product>(request);
+                product.Category = category;
+                _productRepository.AddProduct(product);
+                ResponseProductJson response = _mapper.Map<ResponseProductJson>(product);
                 return response;
             }
-
+            else
+            {
+                Product productStored = await _productRepository.GetProductById(request.Id.Value);                
+                if(productStored is not Product || productStored is null) 
+                    throw new ErrorOnValidationException(new List<string> {"Produto não encontrado."});
+                productStored = _mapper.Map<Product>(request);
+                productStored.Category = category;
+                _productRepository.UpdateProduct(productStored);
+                ResponseProductJson response = _mapper.Map<ResponseProductJson>(productStored);
+                return response;
+            }
         }
 
-        private async Task<ResponseProductJson> Validate(RequestProductJson request)
+        private async void Validate(RequestProductJson request, Category category)
         {
-            ResponseProductJson response = new();
             var validator = new SaveProductValidator();
             ValidationResult result = await validator.ValidateAsync(request);
+            if(category.Id.Equals(0) || category.Name.Length == 0)
+            {
+                result.Errors.Add(new ValidationFailure("Category", "Categoria não informada."));
+            }
+
             if (!result.IsValid)
             {
-                var errors = result.Errors.Select(x => new JsonArray { x.PropertyName, new { x.ErrorMessage } }).ToList();
-                response.Errors = errors;
-                return response;
+                var errors = result.Errors.Select(x => x.ErrorMessage).ToList();
+                throw new ErrorOnValidationException(errors);
             }
-            return response;
         }
     }
 }
