@@ -1,16 +1,17 @@
+import { legumes } from "../../../Data"
+
 import { FaPlus } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { frutas } from "../../../Data"
 
 import "swiper/css";
 import 'swiper/css/navigation';
 
-const Frutas = () => {
+const Legumes = () => {
     return (
-        <div className="frutas">
+        <div className="legumes py-10">
             <h2 className="font-caveat white-normal text-[30px] md:text-[50px] lg:text-[50px] pb-4 text-left text-blackNormal">
-                Frutas
+                Legumes
             </h2>
             <Swiper
                 slidesPerView={3}
@@ -33,7 +34,7 @@ const Frutas = () => {
                 modules={[Navigation]}
                 className="mySwiper"
             >
-                {frutas.map(({ name, price, image, description }, index) => (
+                {legumes.map(({ name, price, image, description }, index) => (
 
                     <SwiperSlide key={index} className="border border-gray-200 hover:border-gray-300 rounded-lg p-4">
                         <div className="flex flex-row p-7 items-center space-x-6">
@@ -59,4 +60,4 @@ const Frutas = () => {
     )
 }
 
-export default Frutas
+export default Legumes
