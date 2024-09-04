@@ -124,5 +124,14 @@ export const verduras = [
     category: 'Verdura',
     description:
       'Crocrante e ideal para saladas e acompanhamentos. Frescor garantido!',
-  }
+  },
+  {
+    id: 11,
+    name: 'Alface americana (500g)',
+    price: '30,00',
+    image: 'alface.png',
+    category: 'Verdura',
+    description:
+      'Crocrante e ideal para saladas e acompanhamentos. Frescor garantido!',
+  },
 ]
