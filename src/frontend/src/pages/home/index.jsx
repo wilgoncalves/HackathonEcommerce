@@ -6,6 +6,7 @@ import CartButton from "../../components/cart";
 import LoginPage from "../../pages/login";
 import SignupPage from "../../pages/createUser";
 import Catalog from "../../sections/catalog";
+import Contact from "../../sections/contact";
 import CartPage from "../../pages/cart";
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
       <Header />
       <Highlights />
       <Catalog />
+      <Contact />
     </div>
   );
 }
