@@ -1,4 +1,4 @@
-import { FaPlus } from "react-icons/fa";
+import { FaPlus, FaArrowRight } from "react-icons/fa";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { frutas } from "../../../Data"
@@ -9,9 +9,15 @@ import 'swiper/css/navigation';
 const Frutas = () => {
     return (
         <div className="frutas">
-            <h2 className="font-caveat white-normal text-[30px] md:text-[50px] lg:text-[50px] pb-4 text-left text-blackNormal">
-                Frutas
-            </h2>
+            <div className="section-title flex justify-between items-center">
+                <h2 className="font-caveat white-normal text-[30px] md:text-[50px] lg:text-[50px] pb-4 text-left text-blackNormal">
+                    Frutas
+                </h2>
+                <a href="#" className="flex items-center">
+                    <span className="text-secondaryGreen text-lg font-medium mr-2">Ver tudo</span>
+                    <FaArrowRight />
+                </a>
+            </div>
             <Swiper
                 slidesPerView={3}
                 spaceBetween={10}

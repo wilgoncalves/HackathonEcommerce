@@ -14,7 +14,7 @@ const Verduras = () => {
                     Verduras
                 </h2>
                 <a href="#" className="flex items-center">
-                    <p className="text-secondaryGreen mr-2">Ver tudo</p>
+                    <p className="text-secondaryGreen text-lg font-medium mr-2">Ver tudo</p>
                     <FaArrowRight />
                 </a>
             </div>
