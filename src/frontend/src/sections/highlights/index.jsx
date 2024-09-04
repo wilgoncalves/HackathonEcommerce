@@ -28,7 +28,7 @@ const Hightlights = () => {
             spaceBetween={10}
             navigation={true}
             breakpoints={{
-              350: {
+              300: {
                 slidesPerView: 1,
                 spaceBetween: 30,
               },

@@ -32,6 +32,9 @@ const NavbarComponent = () => {
   const handleUserClick = () => {
     navigate("/login");
   };
+  const handleCartClick = () => {
+    navigate("/carrinho"); // Redirecione o usuário para a página do carrinho
+  };
 
   return (
     <div className="flex flex-row-reverse md:flex-row gap-2 w-full md:w-[95%] justify-between items-center p-4">
@@ -50,9 +53,15 @@ const NavbarComponent = () => {
             className="absolute top-[40px] right-0 w-[80px] bg-opacityDarkLight rounded-xl shadow-lg z-10"
           >
             <Button label="Home" />
-            <Button label="Destaques" />
-            <Button label="Produtos" />
-            <Button label="Contato" />
+            <a href="#destaques">
+              <Button label="Destaques" />
+            </a>
+            <a href="#produtos">
+              <Button label="Produtos" />
+            </a>
+            <a href="contato">
+              <Button label="Contato" />
+            </a>
             <Button label="Perfil" />
             <Button label="Carrinho" />
           </div>
@@ -60,14 +69,20 @@ const NavbarComponent = () => {
       </div>
 
       <div className="hidden md:flex flex-row w-full gap-2 lg:gap-6 justify-end">
-        <Button label="Home" />
+        <a href="#">
+          <Button label="Home" />
+        </a>
+
         <a href="#destaques">
           <Button label="Destaques" />
         </a>
-        <Button label="Produtos" />
-        <Button label="Contato" />
+        <a href="#produtos">
+          <Button label="Produtos" />
+        </a>
+        <a href="contato">
+          <Button label="Contato" />
+        </a>
       </div>
-
       <div className="flex flex-row gap-4 w-full">
         <div className="flex w-full justify-center items-center">
           <Searchbar />
@@ -75,7 +90,7 @@ const NavbarComponent = () => {
         <div className="hidden md:flex flex-row w-full gap-2 lg:gap-4 text-[24px] lg:text-[30px] justify-center">
           <FaHeart />
           <FaUser onClick={handleUserClick} className="cursor-pointer" />{" "}
-          <TiShoppingCart />
+          <TiShoppingCart onClick={handleCartClick} className="cursor-pointer" />{" "}
         </div>
       </div>
     </div>

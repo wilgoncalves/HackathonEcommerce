@@ -8,7 +8,7 @@ import 'swiper/css/navigation';
 
 const Frutas = () => {
     return (
-        <div className="frutas">
+        <div id="produtos" className="frutas">
             <div className="section-title flex justify-between items-center">
                 <h2 className="font-caveat white-normal text-[30px] md:text-[50px] lg:text-[50px] pb-4 text-left text-blackNormal">
                     Frutas
@@ -23,7 +23,7 @@ const Frutas = () => {
                 spaceBetween={10}
                 navigation={true}
                 breakpoints={{
-                350: {
+                300: {
                     slidesPerView: 1,
                     spaceBetween: 30,
                 },
