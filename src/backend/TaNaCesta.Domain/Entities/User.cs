@@ -10,7 +10,7 @@ namespace TaNaCesta.Domain.Entities
         public string Cpf { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
-        public Role Role { get; set; }
+        public Role Role { get; set; } = Role.Client;
         public bool Active { get; set; } = true;
     }
 }

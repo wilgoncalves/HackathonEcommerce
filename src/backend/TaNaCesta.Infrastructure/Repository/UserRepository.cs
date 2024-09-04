@@ -22,7 +22,7 @@ namespace TaNaCesta.Infrastructure.Repository
 
         public void Update(User user)
         {
-            _context.Users!.Update(user);
+            _context.Entry(user).State = EntityState.Modified;
             _context.SaveChanges();
         }
 

@@ -10,6 +10,7 @@ using TaNaCesta.Application.Services;
 using TaNaCesta.API.Filters;
 using Microsoft.Extensions.Configuration;
 using TaNaCesta.Application.UseCases.User.Get;
+using TaNaCesta.Application.UseCases.User.Put;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,6 +33,7 @@ builder.Services.AddDbContext<TaNaCestaDbContext>();
 
 builder.Services.AddScoped(option => new PasswordEncripter("8B#4Tkm~?202"));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IPutUserByIdUseCase, PutUserByIdUseCase>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IRegisterUserUseCase, RegisterUserUseCase>();
 builder.Services.AddScoped<IGetUserByIdUseCase, GetUserByIdUseCase>();
