@@ -11,6 +11,11 @@ CREATE TABLE Users (
     UNIQUE (cpf, email)
 );
 
+CREATE TABLE Clients (
+    phone_number varchar(15) PRIMARY KEY,
+    name varchar(100) not null 
+);
+
 CREATE TABLE Roles (
     role_id int auto_increment PRIMARY KEY,
     name varchar(100) not null
