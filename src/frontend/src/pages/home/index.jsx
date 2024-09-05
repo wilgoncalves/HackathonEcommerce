@@ -8,18 +8,28 @@ import CartButton from "../../components/cartButton/index.jsx";
 import LoginPage from "../../pages/login";
 import SignupPage from "../../pages/createUser";
 import Catalog from "../../sections/catalog";
-
-import Header from "../../sections/header";
-import Highlights from "../../sections/highlights";
-import NavBar from "../../sections/navBar";
+import Contact from "../../sections/contact";
+import CartPage from "../../pages/cart";
 
 import { useEffect, useState } from "react";
-import Cart from "../../components/cart/cart";
+import Cart from "../../components/cartButton/cart.jsx";
 import axios from "../../services/axios";
-import Contact from "../../sections/contact";
 
 function Home() {
-  const itemCount = 5;
+  const { cartItems } = useContext(CartContext);
+
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
+  const [productList, setListProducts] = useState([]);
+
+
+  useEffect(() => {
+    const get = async () => {
+      const response = await axios.get('products');
+      setListProducts(response.data)
+    }
+    get()
+  }, []);
 
   return (
     <div className="flex flex-col w-full justify-center mt-4 items-center">
@@ -29,11 +39,8 @@ function Home() {
       <Header />
       <Highlights />
       <Catalog />
-
-      <Cart />
-
       <Contact />
-
+      <Cart />
     </div>
   );
 }

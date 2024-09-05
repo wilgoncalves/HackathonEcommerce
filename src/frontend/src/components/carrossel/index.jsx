@@ -4,13 +4,27 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import 'swiper/css/navigation';
-
 import { useContext } from 'react';
 import { CartContext } from '../../CartContext.jsx';
+
+import { useDispatch } from 'react-redux';
+import * as actions from '../../store/modules/cart/actions.jsx'
 
 const ProductCarousel = ({ title, products }) => {
 
   const { addToCart } = useContext(CartContext);
+
+  const dispatch = useDispatch();
+
+
+  const handleClick = (e) => {
+      e.preventDefault();
+      const products = [];
+      products.push({ name: "Teste" })
+      if (products.length > 0) {
+          dispatch(actions.cartRequest({ name: "Teste" }));
+      }
+  }
 
   return (
     <div id="produtos" className="product-carousel">
@@ -57,8 +71,9 @@ const ProductCarousel = ({ title, products }) => {
                 <div className="flex items-center space-x-3">
                   <p className="product-price font-bold text-2xl">R${price}</p>
                   <div className="bg-redNormal p-2 rounded-full"
-                  onClick={() =>
-                    addToCart({ name, price, image, description })}
+                  onClick={handleClick}
+                  /*onClick={() =>
+                    addToCart({ name, price, image, description })}*/
                   >
                     <FaPlus className="text-whiteNormal" />
                   </div>
