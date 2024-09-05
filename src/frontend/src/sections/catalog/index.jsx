@@ -1,14 +1,13 @@
-import Frutas from "./frutas";
-import Legumes from "./legumes";
-import Verduras from "./verduras";
+import ProductCarousel from "../../components/carrossel";
+import { frutas, legumes, verduras } from "../../Data";
 
 const Catalog = () => {
     return (
         <div className="flex flex-col w-full md:w-full pb-11 items-center bg-whiteNormal">
             <div className="flex flex-col w-[90%] mt-6 md:mt-10 lg:mt-15">
-                <Frutas />
-                <Legumes />
-                <Verduras />
+            <ProductCarousel title="Frutas" products={frutas} />
+            <ProductCarousel title="Verduras" products={verduras} />
+            <ProductCarousel title="Legumes" products={legumes} />
             </div>
         </div>
     )

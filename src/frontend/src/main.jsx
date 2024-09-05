@@ -1,18 +1,20 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import Home from './pages/home'
+import { CartProvider } from './CartContext.jsx';
+
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-
 import store, { persistor } from './store';
 
-import Home from './pages/home';
-
 createRoot(document.getElementById('root')).render(
-  <Provider store={store}>
+  <StrictMode>
+    <CartProvider>
+    <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <StrictMode>
-        <Home />
-      </StrictMode>
+    <Home />
     </PersistGate>
-  </Provider>
+    </Provider>
+    </CartProvider>
+  </StrictMode>
 )

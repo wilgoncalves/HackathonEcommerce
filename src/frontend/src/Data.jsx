@@ -1,4 +1,4 @@
-export const highlights = [
+export const destaques = [
   {
     id: 1,
     name: 'Tomate (kg)',
