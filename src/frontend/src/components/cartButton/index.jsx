@@ -1,17 +1,11 @@
+import PropTypes from 'prop-types';
 import { TiShoppingCart } from "react-icons/ti";
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom'; // Importe o useNavigate
 
 const CartButton = ({ itemCount }) => {
-  const navigate = useNavigate(); // Inicialize o hook useNavigate
-
-  const handleCartClick = () => {
-    navigate("/carrinho"); // Redirecione o usuário para a página do carrinho
-  };
-
   return (
     <button 
-      onClick={handleCartClick}  // Chame a função ao clicar no botão
       className="
         fixed bottom-6 right-6
         md:text-[40px]

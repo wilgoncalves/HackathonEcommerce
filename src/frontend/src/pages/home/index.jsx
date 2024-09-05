@@ -8,22 +8,32 @@ import CartButton from "../../components/cartButton/index.jsx";
 import LoginPage from "../../pages/login";
 import SignupPage from "../../pages/createUser";
 import Catalog from "../../sections/catalog";
+
+import Header from "../../sections/header";
+import Highlights from "../../sections/highlights";
+import NavBar from "../../sections/navBar";
+
+import { useEffect, useState } from "react";
+import Cart from "../../components/cart/cart";
+import axios from "../../services/axios";
 import Contact from "../../sections/contact";
-import CartPage from "../../pages/cart";
 
 function Home() {
-  const { cartItems } = useContext(CartContext);
-
-  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const itemCount = 5;
 
   return (
     <div className="flex flex-col w-full justify-center mt-4 items-center">
+      {console.log(productList)}
       <CartButton itemCount={itemCount} />
       <NavBar />
       <Header />
       <Highlights />
       <Catalog />
+
+      <Cart />
+
       <Contact />
+
     </div>
   );
 }
