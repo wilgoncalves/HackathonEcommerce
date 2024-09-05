@@ -1,7 +1,7 @@
 import ScrollingBanner from "../../components/ScrollingBanner";
 import { FaPlus } from "react-icons/fa";
 
-import { highlights } from "../../Data";
+import { destaques } from "../../Data";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -9,7 +9,7 @@ import 'swiper/css/navigation';
 
 import { Navigation } from "swiper/modules";
 
-const Hightlights = () => {
+const Destaques = () => {
   return (
     <div className="flex flex-col w-full md:w-full mt-6 pb-11 md:mt-10 lg:mt-20 items-center bg-darkerGreen">
       <div className="bg-gradient-to-r from-primaryGreen via-primaryGreen to-secondaryGreen w-full font-outfit font-semibold py-5 text-whiteNormal text-center">
@@ -44,7 +44,7 @@ const Hightlights = () => {
             modules={[Navigation]}
             className="mySwiper highlight-products"
           >
-            {highlights.map(({ name, price, image, description }, index) => (
+            {destaques.map(({ name, price, image, description }, index) => (
               <SwiperSlide
                 key={index}
                 className="product-container bg-whiteNormal lg:px-4 py-2 font-outfit font-medium text-[14px] lg:text-[16px] xl:text-[20px] text-black-normal rounded-lg"
@@ -74,4 +74,4 @@ const Hightlights = () => {
   );
 };
 
-export default Hightlights;
+export default Destaques;

@@ -38,7 +38,7 @@ const NavbarComponent = () => {
 
   return (
     <div className="flex flex-row-reverse md:flex-row gap-2 w-full md:w-[95%] justify-between items-center p-4">
-      <div className="hidden lg:block w-[250px] lg:w-[350px]">
+      <div className="hidden lg:block w-[250px]">
         <img src={Logo} alt="Logo Tá na Cesta" />
       </div>
 
@@ -59,16 +59,14 @@ const NavbarComponent = () => {
             <a href="#produtos">
               <Button label="Produtos" />
             </a>
-            <a href="contato">
+            <a href="#contato">
               <Button label="Contato" />
             </a>
-            <Button label="Perfil" />
-            <Button label="Carrinho" />
           </div>
         )}
       </div>
 
-      <div className="hidden md:flex flex-row w-full gap-2 lg:gap-6 justify-end">
+      <div className="hidden md:flex flex-row w-full gap-2 lg:gap-6 justify-center">
         <a href="#">
           <Button label="Home" />
         </a>
@@ -79,11 +77,11 @@ const NavbarComponent = () => {
         <a href="#produtos">
           <Button label="Produtos" />
         </a>
-        <a href="contato">
+        <a href="#contato">
           <Button label="Contato" />
         </a>
       </div>
-      <div className="flex flex-row gap-4 w-full">
+      <div className="hidden  flex-row gap-4 w-full">
         <div className="flex w-full justify-center items-center">
           <Searchbar />
         </div>

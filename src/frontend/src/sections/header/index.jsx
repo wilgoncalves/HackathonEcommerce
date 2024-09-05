@@ -20,13 +20,13 @@ const Header = () => {
                 Praticidade e conforto: Compre online e receba em casa
             </span>
             <div className="flex flex-col md:flex-row font-outfit font-semibold gap-6 mt-6 text-[14px] lg:text-[16px] text-darkFadeColor text-center">
-                <span className="ring-4 ring-primaryDarkLight px-4 py-3 rounded-xl hover:ring-darkFadeColor">
+                <span className="ring-2 ring-primaryDarkLight px-4 py-3 rounded-xl hover:ring-darkFadeColor">
                     Ingredientes frescos e de qualidade
                     </span>
-                <span className="ring-4 ring-primaryDarkLight px-4 py-3 rounded-xl hover:ring-darkFadeColor">
+                <span className="ring-2 ring-primaryDarkLight px-4 py-3 rounded-xl hover:ring-darkFadeColor">
                     Entrega rápida e eficiente
                     </span>
-                <span className="ring-4 ring-primaryDarkLight px-4 py-3 rounded-xl hover:ring-darkFadeColor">
+                <span className="ring-2 ring-primaryDarkLight px-4 py-3 rounded-xl hover:ring-darkFadeColor">
                     Mais saúde e sabor para você
                     </span>
             </div>
