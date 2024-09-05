@@ -21,47 +21,16 @@ namespace TaNaCesta.API.Controllers
         [Route("products/{id}")]
         public async Task<IActionResult> GetById([FromServices] IGetProductUsecase service, [FromRoute] int id)
         {
-<<<<<<< HEAD
-            try
-            {
-                var result = service.GetProductById(id).Result;
-                //if (result.Errors.Any())
-                {
-                    //return BadRequest(result.Errors);
-                }
-                return Ok(result);
-            }
-            catch (Exception e)
-            {
-=======
             var result = service.GetProductById(id).Result;
             return Ok(result);
->>>>>>> ad5f41604a449d12027f1ee6f89b3eea3155a7bc
 
         }
 
         [HttpGet("products/")]
         public async Task<IActionResult> GetAll([FromServices] IGetProductUsecase service)
         {
-<<<<<<< HEAD
-            try
-            {
-                var result = service.GetAllProjects().Result;
-                //if (result.Errors.Any())
-                {
-                    //return BadRequest(result.Errors);
-                }
-                return Ok(result);
-            }
-            catch (Exception e)
-            {
-
-                return BadRequest(e.Message);
-            }
-=======
             var result = service.GetAllProjects().Result;
             return Ok(result);
->>>>>>> ad5f41604a449d12027f1ee6f89b3eea3155a7bc
         }
     }
 }
