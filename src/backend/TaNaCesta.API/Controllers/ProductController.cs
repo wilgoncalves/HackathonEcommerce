@@ -14,13 +14,14 @@ namespace TaNaCesta.API.Controllers
         public async Task<IActionResult> Save([FromServices] ISaveProductUseCase service, [FromBody] RequestProductJson request)
         {
             var result = service.Execute(request).Result;
-            return Created("",result);
+            return Created("", result);
         }
 
         [HttpGet]
         [Route("products/{id}")]
         public async Task<IActionResult> GetById([FromServices] IGetProductUsecase service, [FromRoute] int id)
         {
+<<<<<<< HEAD
             try
             {
                 var result = service.GetProductById(id).Result;
@@ -32,14 +33,17 @@ namespace TaNaCesta.API.Controllers
             }
             catch (Exception e)
             {
+=======
+            var result = service.GetProductById(id).Result;
+            return Ok(result);
+>>>>>>> ad5f41604a449d12027f1ee6f89b3eea3155a7bc
 
-                return BadRequest(e.Message);
-            }
         }
 
         [HttpGet("products/")]
         public async Task<IActionResult> GetAll([FromServices] IGetProductUsecase service)
         {
+<<<<<<< HEAD
             try
             {
                 var result = service.GetAllProjects().Result;
@@ -54,6 +58,10 @@ namespace TaNaCesta.API.Controllers
 
                 return BadRequest(e.Message);
             }
+=======
+            var result = service.GetAllProjects().Result;
+            return Ok(result);
+>>>>>>> ad5f41604a449d12027f1ee6f89b3eea3155a7bc
         }
     }
 }
