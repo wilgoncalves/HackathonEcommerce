@@ -1,12 +1,24 @@
-import { FaPlus, FaArrowRight } from "react-icons/fa";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { FaArrowRight, FaPlus } from "react-icons/fa";
+import { useDispatch } from 'react-redux';
 import { Navigation } from "swiper/modules";
-import { frutas } from "../../../Data"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { frutas } from "../../../Data";
+import * as actions from '../../../store/modules/cart/actions';
 
 import "swiper/css";
 import 'swiper/css/navigation';
-
 const Frutas = () => {
+    const dispatch = useDispatch();
+
+
+    const handleClick = (e) => {
+        e.preventDefault();
+        const products = [];
+        products.push({ name: "Teste" })
+        if (products.length > 0) {
+            dispatch(actions.cartRequest({ name: "Teste" }));
+        }
+    }
     return (
         <div className="frutas">
             <div className="section-title flex justify-between items-center">
@@ -23,18 +35,18 @@ const Frutas = () => {
                 spaceBetween={10}
                 navigation={true}
                 breakpoints={{
-                350: {
-                    slidesPerView: 1,
-                    spaceBetween: 30,
-                },
-                744: {
-                    slidesPerView: 2,
-                    spaceBetween: 30,
-                },
-                1200: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
-                },
+                    350: {
+                        slidesPerView: 1,
+                        spaceBetween: 30,
+                    },
+                    744: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1200: {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    },
                 }}
                 modules={[Navigation]}
                 className="mySwiper"
@@ -49,7 +61,7 @@ const Frutas = () => {
                                 <hr className="text-darkFadeColor"></hr>
                                 <div className="flex items-center space-x-3">
                                     <p className="product-price font-bold text-2xl">R${price}</p>
-                                    <div className="bg-redNormal p-2 rounded-full">
+                                    <div onClick={handleClick} className="bg-redNormal p-2 rounded-full">
                                         <FaPlus className="text-whiteNormal" />
                                     </div>
                                 </div>
@@ -61,7 +73,7 @@ const Frutas = () => {
                     </SwiperSlide>
                 ))}
             </Swiper>
-        </div> 
+        </div>
     )
 }
 

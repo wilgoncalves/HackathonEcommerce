@@ -1,9 +1,11 @@
-import { TiShoppingCart } from "react-icons/ti";
 import PropTypes from 'prop-types';
+import { TiShoppingCart } from "react-icons/ti";
 
 const CartButton = ({ itemCount }) => {
+
+
   return (
-    <button 
+    <button
       className="
         fixed bottom-6 right-6
         md:text-[40px]
@@ -16,7 +18,7 @@ const CartButton = ({ itemCount }) => {
         z-10
       "
     >
-    <TiShoppingCart />
+      <TiShoppingCart />
       {itemCount > 0 && (
         <span className="
           absolute top-0 right-0 
