@@ -1,6 +1,7 @@
+import { useContext } from 'react';
 import ScrollingBanner from "../../components/ScrollingBanner";
 import { FaPlus } from "react-icons/fa";
-
+import { CartContext } from '../../CartContext.jsx';
 import { destaques } from "../../Data";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,6 +11,7 @@ import 'swiper/css/navigation';
 import { Navigation } from "swiper/modules";
 
 const Destaques = () => {
+  const { addToCart } = useContext(CartContext);
   return (
     <div className="flex flex-col w-full md:w-full mt-6 pb-11 md:mt-10 lg:mt-20 items-center bg-darkerGreen">
       <div className="bg-gradient-to-r from-primaryGreen via-primaryGreen to-secondaryGreen w-full font-outfit font-semibold py-5 text-whiteNormal text-center">
@@ -56,7 +58,9 @@ const Destaques = () => {
                     <hr className="text-darkFadeColor"></hr>
                     <div className="flex items-center space-x-3">
                       <p className="product-price font-bold text-2xl">R${price}</p>
-                      <div className="bg-redNormal p-2 rounded-full">
+                      <div className="bg-redNormal p-2 rounded-full" 
+                      onClick={() =>
+                        addToCart({ name, price, image, description })}>
                         <FaPlus className="text-whiteNormal" />
                       </div>
                     </div>

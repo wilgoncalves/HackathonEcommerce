@@ -1,84 +1,89 @@
-import { useState } from "react";
+import { useContext } from 'react';
+import { CartContext } from '../../CartContext.jsx';
+import { useNavigate } from 'react-router-dom';
 
-const CartPage = () => {
-  // Estado inicial simulando produtos no carrinho
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: 'Produto 1', price: 50, quantity: 1 },
-    { id: 2, name: 'Produto 2', price: 30, quantity: 1 },
-  ]);
+const Cart = () => {
+  const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
 
-  // Atualiza a quantidade do produto
-  const handleQuantityChange = (e, id) => {
-    const newQuantity = parseInt(e.target.value);
-    setCartItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: newQuantity } : item
-      )
-    );
-  };
+  const navigate = useNavigate();
 
-  // Remove o produto do carrinho
-  const handleRemove = (id) => {
-    setCartItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
-
-  // Calcula o valor total
-  const calculateTotal = () => {
-    return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
-
-  // Lógica para finalizar compra
   const handleCheckout = () => {
-    alert('Compra finalizada!');
-    // Aqui você pode adicionar a lógica para processar a compra
+    navigate('/checkout'); // Redireciona para a página de checkout
+  };
+  
+  // Função para atualizar a quantidade
+  const handleQuantityChange = (index, newQuantity) => {
+    if (newQuantity > 0) {
+      updateQuantity(index, newQuantity);
+    }
+  };
+
+  // Função para calcular o total do carrinho
+  const calculateTotal = () => {
+    return cartItems.reduce((total, item) => {
+      const price = parseFloat(item.price); // Converta o preço para número
+      return total + (price * item.quantity);
+    }, 0);
   };
 
   return (
-    <div className="cart-page">
-      <h1 className="text-2xl font-semibold mb-4">Carrinho de Compras</h1>
-      {cartItems.length === 0 ? (
-        <p>Seu carrinho está vazio.</p>
-      ) : (
-        cartItems.map((item) => (
-          <div key={item.id} className="cart-item flex justify-between items-center p-4 mb-2 border rounded">
-            <div className="item-details">
-              <h2 className="font-semibold">{item.name}</h2>
-              <p>Preço: R${item.price}</p>
-            </div>
-            <div className="item-actions">
-              <input
-                type="number"
-                min="1"
-                value={item.quantity}
-                onChange={(e) => handleQuantityChange(e, item.id)}
-                className="w-16 p-2 border rounded"
-              />
-              <button
-                onClick={() => handleRemove(item.id)}
-                className="ml-4 p-2 bg-red-500 text-white rounded"
-              >
-                Remover
-              </button>
-            </div>
-            <div className="item-total">
-              <p>Total: R${item.price * item.quantity}</p>
-            </div>
+    <div className="container mx-auto p-6 bg-gray-100 min-h-screen">
+      <h2 className="text-3xl font-semibold mb-6">Seu Carrinho</h2>
+      {cartItems.length > 0 ? (
+        <div className="bg-white rounded-lg shadow-md p-6">
+          <ul className="space-y-4">
+            {cartItems.map((item, index) => (
+              <li key={index} className="flex justify-between items-center p-4 border-b border-gray-200">
+                <div className="flex items-center space-x-4">
+                  <img 
+                    src={`./src/assets/products/${item.image}`} 
+                    alt={item.name} 
+                    className="w-16 h-16 object-cover rounded-md"
+                  />
+                  <div>
+                    <h3 className="text-lg font-medium">{item.name}</h3>
+                    <p className="text-gray-600">R${parseFloat(item.price).toFixed(2)}</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-4">
+                  <button 
+                    onClick={() => handleQuantityChange(index, item.quantity - 1)} 
+                    className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600"
+                  >
+                    -
+                  </button>
+                  <span className="text-lg">{item.quantity}</span>
+                  <button 
+                    onClick={() => handleQuantityChange(index, item.quantity + 1)} 
+                    className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
+                  >
+                    +
+                  </button>
+                  <button 
+                    onClick={() => removeFromCart(item.name)} 
+                    className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400"
+                  >
+                    Remover
+                  </button>
+                </div>
+              </li>
+            ))}
+          </ul>
+          <div className="mt-6 flex justify-between items-center">
+            <h3 className="text-xl font-bold">Total a pagar:</h3>
+            <p className="text-2xl font-semibold">R${calculateTotal().toFixed(2)}</p>
           </div>
-        ))
-      )}
-      {cartItems.length > 0 && (
-        <div className="cart-summary mt-6">
-          <h2 className="text-xl font-semibold">Valor Total: R${calculateTotal()}</h2>
-          <button
-            onClick={handleCheckout}
-            className="mt-4 p-3 bg-green-500 text-white rounded"
-          >
-            Concluir Compra
-          </button>
+          <div>
+            <button onClick={handleCheckout}>
+              Enviar pedido
+            </button>
+          </div>
         </div>
+      ) : (
+        <p className="text-center text-gray-600">Seu carrinho esta vazio</p>
       )}
     </div>
   );
 };
 
-export default CartPage;
+export default Cart;

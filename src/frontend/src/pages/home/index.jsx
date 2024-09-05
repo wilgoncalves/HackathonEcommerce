@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { CartContext } from '../../CartContext.jsx';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "../../sections/navBar";
 import Header from "../../sections/header";
@@ -10,7 +12,9 @@ import Contact from "../../sections/contact";
 import CartPage from "../../pages/cart";
 
 function Home() {
-  const itemCount = 5;
+  const { cartItems } = useContext(CartContext);
+
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="flex flex-col w-full justify-center mt-4 items-center">
