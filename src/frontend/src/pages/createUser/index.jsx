@@ -49,7 +49,7 @@ const Signup = () => {
             className="flex flex-row items-center font-outfit font-normal text-xs px-2 py-1 mb-2 border-2 border-primaryGreen
         text-primaryGreen rounded-xl hover:text-primaryGreen hover:scale-105"
           >
-            <span>Entre com a conta </span>
+            <span onClick={handleClose}>Entre com a conta </span>
             <FcGoogle className="ml-1" size={16} />
             <span>oogle</span>
           </button>
