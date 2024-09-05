@@ -29,6 +29,12 @@
         }
     }
 
+    .swiper-slide {
+        height: auto !important;
+        display: flex !important;
+        margin-right: 20px !important;
+    }
+
     .swiper-button-prev {
         left: 0 !important;
         background-color: red;
