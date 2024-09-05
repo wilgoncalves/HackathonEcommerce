@@ -45,6 +45,7 @@ namespace TaNaCesta.Infrastructure.Repository
             Category category = await query.Select(x => x.c).FirstAsync();
             Product product = await query.Select(x => x.p).FirstAsync();
             product.Category = category;
+            _context.Entry(product).State = EntityState.Detached;
             return product;
         }
 
