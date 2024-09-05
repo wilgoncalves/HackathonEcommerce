@@ -24,9 +24,9 @@ namespace TaNaCesta.API.Controllers
             try
             {
                 var result = service.GetProductById(id).Result;
-                if (result.Errors.Any())
+                //if (result.Errors.Any())
                 {
-                    return BadRequest(result.Errors);
+                    //return BadRequest(result.Errors);
                 }
                 return Ok(result);
             }
@@ -43,9 +43,9 @@ namespace TaNaCesta.API.Controllers
             try
             {
                 var result = service.GetAllProjects().Result;
-                if (result.Errors.Any())
+                //if (result.Errors.Any())
                 {
-                    return BadRequest(result.Errors);
+                    //return BadRequest(result.Errors);
                 }
                 return Ok(result);
             }

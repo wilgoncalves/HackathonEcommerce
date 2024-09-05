@@ -11,6 +11,7 @@ namespace TaNaCesta.Infrastructure.DataAccess
         }
 
         public DbSet<User>? Users { get; set; }
+        public DbSet<Client>? Clients { get; set; }
         public DbSet<Product>? Products { get; set; }
         public DbSet<Category>? Categories { get; set; }
 
@@ -23,6 +24,7 @@ namespace TaNaCesta.Infrastructure.DataAccess
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(CategoryMapping).Assembly);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ProductMapping).Assembly);
+            modelBuilder.ApplyConfigurationsFromAssembly(typeof(ClientMapping).Assembly);
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(UserMapping).Assembly);
         }
     }
