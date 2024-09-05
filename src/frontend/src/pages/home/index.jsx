@@ -3,6 +3,7 @@ import CartButton from "../../components/cart";
 import SignupPage from "../../pages/cad-user";
 import LoginPage from "../../pages/login";
 import Catalog from "../../sections/catalog";
+
 import Header from "../../sections/header";
 import Highlights from "../../sections/highlights";
 import NavBar from "../../sections/navBar";
@@ -10,6 +11,8 @@ import NavBar from "../../sections/navBar";
 import { useEffect, useState } from "react";
 import Cart from "../../components/cart/cart";
 import axios from "../../services/axios";
+import Contact from "../../sections/contact";
+
 
 function Home() {
   const itemCount = 5;
@@ -32,7 +35,11 @@ function Home() {
       <Header />
       <Highlights />
       <Catalog />
+
       <Cart />
+
+      <Contact />
+
     </div>
   );
 }
