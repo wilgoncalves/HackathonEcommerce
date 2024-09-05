@@ -1,15 +1,8 @@
 import { useContext } from 'react';
 import { CartContext } from '../../CartContext.jsx';
-import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
-
-  const navigate = useNavigate();
-
-  const handleCheckout = () => {
-    navigate('/checkout'); // Redireciona para a página de checkout
-  };
   
   // Função para atualizar a quantidade
   const handleQuantityChange = (index, newQuantity) => {
@@ -73,8 +66,9 @@ const Cart = () => {
             <h3 className="text-xl font-bold">Total a pagar:</h3>
             <p className="text-2xl font-semibold">R${calculateTotal().toFixed(2)}</p>
           </div>
-          <div>
-            <button onClick={handleCheckout}>
+          <div className='flex mt-10 w-full justify-center'>
+            <button className='md:text-[20px] bg-transparent mb-16 md:mb-8 border-2 border-whatsappColor 
+            text-whatsappColor px-12 py-3 rounded-full hover:bg-whatsappColor hover:text-white transition-all'>
               Enviar pedido
             </button>
           </div>

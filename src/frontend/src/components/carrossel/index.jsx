@@ -5,7 +5,13 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import 'swiper/css/navigation';
 
+import { useContext } from 'react';
+import { CartContext } from '../../CartContext.jsx';
+
 const ProductCarousel = ({ title, products }) => {
+
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div id="produtos" className="product-carousel">
       <div className="section-title flex justify-between items-center">
@@ -50,7 +56,10 @@ const ProductCarousel = ({ title, products }) => {
                 <hr className="text-darkFadeColor"></hr>
                 <div className="flex items-center space-x-3">
                   <p className="product-price font-bold text-2xl">R${price}</p>
-                  <div className="bg-redNormal p-2 rounded-full">
+                  <div className="bg-redNormal p-2 rounded-full"
+                  onClick={() =>
+                    addToCart({ name, price, image, description })}
+                  >
                     <FaPlus className="text-whiteNormal" />
                   </div>
                 </div>
