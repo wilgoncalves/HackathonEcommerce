@@ -1,20 +1,19 @@
 import PropTypes from "prop-types";
-//import { useContext } from 'react';
+import { useContext } from 'react';
 import { FaArrowRight, FaPlus } from "react-icons/fa";
 import "swiper/css";
 import 'swiper/css/navigation';
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-//import { CartContext } from '../../CartContext.jsx';
+import { CartContext } from '../../CartContext.jsx';
 
 
 const ProductCarousel = ({ title, products }) => {
 
-  // const { addToCart } = useContext(CartContext);
+  console.log(products);
 
-  // const handleClick = (e) => {
-  //   e.preventDefault();
-  // }
+  const { addToCart } = useContext(CartContext);
+
   return (
     <div id="produtos" className="product-carousel">
       <div className="section-title flex justify-between items-center">
@@ -47,7 +46,7 @@ const ProductCarousel = ({ title, products }) => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {products.map(({ name, price }, index) => (
+        {products !== undefined ? products.map(({ name, price }, index) => (
 
           <SwiperSlide
             key={index}
@@ -61,24 +60,20 @@ const ProductCarousel = ({ title, products }) => {
                 <div className="flex items-center space-x-3">
                   <p className="product-price font-bold text-2xl">R${price}</p>
                   <div className="bg-redNormal p-2 rounded-full"
-                  // onClick={handleClick}
-                  // onClick={() =>
-                  //   addToCart({ name, price, image, description })}
+                  onClick={() =>
+                     addToCart({ name, price, })}
 
                   >
-                    <FaPlus 
-                    onClick={() =>
-                      addToCart({ name, price, image, description })}
-                    className="text-whiteNormal" />
+                    <FaPlus className="text-whiteNormal" />
                   </div>
                 </div>
               </div>
               <div className="product-image">
-                <img src={(`./src/assets/products/abobora`)} alt={name} />
+              <img src={(`./src/assets/products/${name.split(' ')[0].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}.png`)} alt={name} />
               </div>
             </div>
           </SwiperSlide>
-        ))}
+        )) : <div></div>}
 
       </Swiper>
     </div>
@@ -90,9 +85,7 @@ ProductCarousel.propTypes = {
   products: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     })
   ).isRequired,
 };

@@ -1,7 +1,6 @@
 import { useContext } from 'react';
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { CartContext } from '../../CartContext.jsx';
-import Cart from "../../components/cartButton/cart.jsx";
 import CartButton from "../../components/cartButton/index.jsx";
 import CartPage from "../../pages/cart";
 import SignupPage from "../../pages/createUser";
@@ -11,6 +10,7 @@ import Contact from "../../sections/contact";
 import Highlights from "../../sections/destaques";
 import Header from "../../sections/header";
 import NavBar from "../../sections/navBar";
+import Checkout from "../../pages/checkout/checkout.jsx"
 
 function Home() {
   const { cartItems } = useContext(CartContext);
@@ -25,7 +25,6 @@ function Home() {
       <Highlights />
       <Catalog />
       <Contact />
-      <Cart />
     </div>
   );
 }
@@ -39,6 +38,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/carrinho" element={<CartPage />} />
         <Route path="/checkout" element={<Checkout />} />
+
       </Routes>
     </Router>
   );

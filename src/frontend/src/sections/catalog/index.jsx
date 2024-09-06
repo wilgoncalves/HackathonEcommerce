@@ -5,15 +5,28 @@ import * as actions from '../../store/modules/products/actions';
 
 const Catalog = () => {
     const dispatch = useDispatch();
-    const data = useSelector(state => state.products.products);
-    const { products } = data;
-    const frutas = products.filter(p => p.categoryId === 3);
-    const verduras = products.filter(p => p.categoryId === 1);
-    const legumes = products.filter(p => p.categoryId === 2);
+
+    const data = useSelector(state => state.products);
+    let frutas, verduras, legumes;
+
+
+
+    if (!data || data===undefined || !data.products) {
+        frutas = verduras = legumes = [];
+    } else {
+        const { products } = data;
+        console.log(products)
+        frutas = products.filter(p => p.categoryId === 3);
+        verduras = products.filter(p => p.categoryId === 1);
+        legumes = products.filter(p => p.categoryId === 2);
+        console.log(verduras)
+    }
+
 
     useEffect(() => {
         dispatch(actions.getAllProductsRequest());
     }, [dispatch])
+
 
     return (
         <div className="flex flex-col w-full md:w-full pb-11 items-center bg-whiteNormal">

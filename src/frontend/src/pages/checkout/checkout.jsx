@@ -26,7 +26,7 @@ const Checkout = () => {
             <li key={index} className="flex justify-between items-center p-4 border-b border-gray-200">
               <div className="flex items-center space-x-4">
                 <img 
-                  src={`./src/assets/products/${item.image}`} 
+                  src={(`./src/assets/products/${item.name.split(' ')[0].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}.png`)}
                   alt={item.name} 
                   className="w-16 h-16 object-cover rounded-md"
                 />

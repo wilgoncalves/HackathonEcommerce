@@ -9,12 +9,12 @@ import store, { persistor } from './store';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <CartProvider>
     <Provider store={store}>
+    <CartProvider>
     <PersistGate persistor={persistor}>
     <Home />
     </PersistGate>
-    </Provider>
     </CartProvider>
+    </Provider>
   </StrictMode>
 )
