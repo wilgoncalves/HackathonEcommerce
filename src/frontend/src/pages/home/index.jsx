@@ -11,6 +11,7 @@ import Contact from "../../sections/contact";
 import Highlights from "../../sections/destaques";
 import Header from "../../sections/header";
 import NavBar from "../../sections/navBar";
+import Footer from '../../sections/footer/index.jsx';
 
 function Home() {
   const { cartItems } = useContext(CartContext);
@@ -25,6 +26,7 @@ function Home() {
       <Highlights />
       <Catalog />
       <Contact />
+      <Footer />
       <Cart />
     </div>
   );
