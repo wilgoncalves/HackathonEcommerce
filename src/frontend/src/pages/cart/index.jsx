@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { CartContext } from "../../CartContext.jsx";
 import { useNavigate } from "react-router-dom";
+import Logo from "../../assets/logo-tana-cesta.png";
+import { FaPlus } from "react-icons/fa";
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
@@ -27,9 +29,22 @@ const Cart = () => {
     }
   };
 
+  const handleClose = () => {
+    navigate("/");
+  };
+
   return (
-    <div className="container mx-auto p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-3xl font-semibold mb-6">Seu Carrinho</h2>
+    <div className="container font-outfit w-[60%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
+      <div className="flex flex-row justify-center gap-10 items-center h-[250px]">
+       <img src={Logo} alt="Logotipo Tá na Cesta" 
+       className="w-[250px]"
+       />
+      </div>
+      <div onClick={handleClose}
+      className="flex gap-2 m-2 cursor-pointer items-center">
+      <FaPlus className="text-redNormal" />
+      Adicionar Produtos | Fechar Cesta
+      </div>
       {cartItems.length > 0 ? (
         <div className="bg-white rounded-lg shadow-md p-6">
           <ul className="space-y-4">
@@ -95,7 +110,7 @@ const Cart = () => {
               className="md:text-[20px] bg-transparent mb-16 md:mb-8 border-2 border-whatsappColor 
               text-whatsappColor px-12 py-3 rounded-full hover:bg-whatsappColor hover:text-white transition-all"
             >
-              Enviar pedido
+              Fechar Cesta
             </button>
           </div>
         </div>

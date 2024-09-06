@@ -1,7 +1,11 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../CartContext.jsx";
+import Logo from "../../assets/logo-tana-cesta.png";
+import { useNavigate } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 
 const Checkout = () => {
+  const navigate = useNavigate();
   const { cartItems, calculateTotal } = useContext(CartContext);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -15,9 +19,34 @@ const Checkout = () => {
       alert("Por favor, preencha todos os campos.");
     }
   };
+
+  const handleClose = () => {
+    navigate("/");
+  };
+
+  const handleCart = () => {
+    navigate("/carrinho");
+  };
+
   return (
-    <div className="container mx-auto p-6 bg-gray-100 min-h-screen">
-      <h2 className="text-3xl font-semibold mb-6">Checkout</h2>
+    <div className="container font-outfit w-[60%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
+      <div className="flex flex-row justify-center gap-16 items-center h-[250px]">
+       <img src={Logo} alt="Logotipo Tá na Cesta" 
+       className="w-[250px]"
+       />
+       <h2 className="text-6xl font-semibold font-caveat mb-6">Checkout</h2>
+      </div>
+      <div
+      className="flex gap-2 m-2 cursor-pointer items-center">
+      <FaPlus className="text-redNormal" />
+      <span onClick={handleClose}>
+      Adicionar Produtos
+      </span>
+      |
+      <span onClick={handleCart}>
+      Voltar na cesta
+      </span>
+      </div>
       <div className="bg-white rounded-lg shadow-md p-6">
         <ul className="space-y-4">
           {cartItems.map((item, index) => (
@@ -52,7 +81,7 @@ const Checkout = () => {
             R${calculateTotal().toFixed(2)}
           </p>
         </div>
-        <div className="mt-6">
+        <div className="flex flex-col mt-6 w-[300px]">
           <h3 className="text-xl font-bold mb-4">Informações do Cliente</h3>
           <div className="mb-4">
             <label className="block text-gray-700">Nome</label>
@@ -78,7 +107,7 @@ const Checkout = () => {
             onClick={handleFinalizeOrder}
             className="bg-green-500 text-white px-8 py-3 rounded-full hover:bg-green-600 transition-all"
           >
-            Finalizar Pedido
+            Enviar Pedido
           </button>
         </div>
       </div>
