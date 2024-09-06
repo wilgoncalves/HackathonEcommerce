@@ -1,13 +1,11 @@
-import { useContext } from 'react';
+import { useContext } from "react";
 import ScrollingBanner from "../../components/ScrollingBanner";
 import { FaPlus } from "react-icons/fa";
-import { CartContext } from '../../CartContext.jsx';
+import { CartContext } from "../../CartContext.jsx";
 import { destaques } from "../../Data";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import "swiper/css";
-import 'swiper/css/navigation';
-
+import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 
 const Destaques = () => {
@@ -54,19 +52,26 @@ const Destaques = () => {
                 <div className="flex flex-row p-7 items-center space-x-6">
                   <div className="product-info space-y-3 w-[70%]">
                     <h3 className="font-bold">{name}</h3>
-                    <p className="text-darkFadeColor text-[14px] ">{description}</p>
+                    <p className="text-darkFadeColor text-[14px] ">
+                      {description}
+                    </p>
                     <hr className="text-darkFadeColor"></hr>
                     <div className="flex items-center space-x-3">
-                      <p className="product-price font-bold text-2xl">R${price}</p>
-                      <div className="bg-redNormal p-2 rounded-full cursor-pointer" 
-                      onClick={() =>
-                        addToCart({ name, price, image, description })}>
+                      <p className="product-price font-bold text-2xl">
+                        R${price}
+                      </p>
+                      <div
+                        className="bg-redNormal p-2 rounded-full cursor-pointer"
+                        onClick={() =>
+                          addToCart({ name, price, image, description })
+                        }
+                      >
                         <FaPlus className="text-whiteNormal" />
                       </div>
                     </div>
                   </div>
                   <div className="product-image">
-                    <img src={(`./src/assets/products/${image}`)} alt="" />
+                    <img src={`./src/assets/products/${image}`} alt="" />
                   </div>
                 </div>
               </SwiperSlide>

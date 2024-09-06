@@ -1,17 +1,13 @@
 import PropTypes from "prop-types";
-import { useContext } from 'react';
+import { useContext } from "react";
 import { FaPlus } from "react-icons/fa";
 import "swiper/css";
-import 'swiper/css/navigation';
+import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { CartContext } from '../../CartContext.jsx';
-
+import { CartContext } from "../../CartContext.jsx";
 
 const ProductCarousel = ({ title, products }) => {
-
-  console.log(products);
-
   const { addToCart } = useContext(CartContext);
 
   return (
@@ -20,8 +16,7 @@ const ProductCarousel = ({ title, products }) => {
         <h2 className="font-caveat text-[30px] md:text-[50px] lg:text-[50px] pb-4 text-left text-blackNormal">
           {title}
         </h2>
-        <a href="#" className="flex items-center">
-        </a>
+        <a href="#" className="flex items-center"></a>
       </div>
       <Swiper
         slidesPerView={3}
@@ -44,35 +39,45 @@ const ProductCarousel = ({ title, products }) => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {products !== undefined ? products.map(({ name, price }, index) => (
-
-          <SwiperSlide
-            key={index}
-            className="border border-gray-200 hover:border-gray-300 rounded-lg p-4"
-          >
-            <div className="flex flex-row p-7 items-center space-x-6">
-              <div className="product-info space-y-3 w-[70%]">
-                <h3 className="font-bold text-xl">{name}</h3>
-                <p className="text-darkFadeColor text-[14px]">{name}</p>
-                <hr className="text-darkFadeColor"></hr>
-                <div className="flex items-center space-x-3">
-                  <p className="product-price font-bold text-2xl">R${price}</p>
-                  <div className="bg-redNormal p-2 rounded-full cursor-pointer"
-                  onClick={() =>
-                     addToCart({ name, price, })}
-
-                  >
-                    <FaPlus className="text-whiteNormal" />
+        {products !== undefined ? (
+          products.map(({ name, price }, index) => (
+            <SwiperSlide
+              key={index}
+              className="border border-gray-200 hover:border-gray-300 rounded-lg p-4"
+            >
+              <div className="flex flex-row p-7 items-center space-x-6">
+                <div className="product-info space-y-3 w-[70%]">
+                  <h3 className="font-bold text-xl">{name}</h3>
+                  <p className="text-darkFadeColor text-[14px]">{name}</p>
+                  <hr className="text-darkFadeColor"></hr>
+                  <div className="flex items-center space-x-3">
+                    <p className="product-price font-bold text-2xl">
+                      R${price}
+                    </p>
+                    <div
+                      className="bg-redNormal p-2 rounded-full cursor-pointer"
+                      onClick={() => addToCart({ name, price })}
+                    >
+                      <FaPlus className="text-whiteNormal" />
+                    </div>
                   </div>
                 </div>
+                <div className="product-image">
+                  <img
+                    src={`./src/assets/products/${name
+                      .split(" ")[0]
+                      .toLowerCase()
+                      .normalize("NFD")
+                      .replace(/[\u0300-\u036f]/g, "")}.png`}
+                    alt={name}
+                  />
+                </div>
               </div>
-              <div className="product-image">
-              <img src={(`./src/assets/products/${name.split(' ')[0].toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}.png`)} alt={name} />
-              </div>
-            </div>
-          </SwiperSlide>
-        )) : <div></div>}
-
+            </SwiperSlide>
+          ))
+        ) : (
+          <div></div>
+        )}
       </Swiper>
     </div>
   );
