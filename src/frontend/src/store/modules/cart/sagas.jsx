@@ -1,4 +1,4 @@
-import { all, put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest } from 'redux-saga/effects';
 import * as types from '../types';
 import * as actions from './actions';
 
@@ -17,6 +17,6 @@ function* cartRequest({ payload }) {
 // Cria um middleware que escuta cada dispacho para o armazenamento e mapeia com a função determinada.
 // takeLatest pega a última requisição feita e ignora as outras, evitando multiplas requisições do mesmo tipo.
 
-export default all([
-    takeLatest(types.CART_ADD_PRODUCT_REQUEST, cartRequest),
-])
+export default function* cart() {
+    yield takeLatest(types.CART_ADD_PRODUCT_REQUEST, cartRequest);
+}
