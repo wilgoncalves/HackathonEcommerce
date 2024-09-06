@@ -16,34 +16,40 @@ Para realizar um pedido, basta apenas entrar no site do Ecommerce e navegar pelo
 
 
 ## EQUIPE:
-**•	Backend:**
+### **•	Backend:**
 
-**Pedro Santos** <a href="https://www.linkedin.com/in/pedrohaugusto/" target="_blank">
+**- Pedro Santos** <a href="https://www.linkedin.com/in/pedrohaugusto/" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/>
 </a> 
-| **Robson Mendonça** <a href="https://www.linkedin.com/in/robsonamendonca/" target="_blank">
+
+**- Robson Mendonça** <a href="https://www.linkedin.com/in/robsonamendonca/" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
 </a>
-| **Vinicius Dyonisio** <a href="https://www.linkedin.com/in/vinicius-souza-dyonisio-a59a08206/" target="_blank">
+
+**- Vinicius Dyonisio** <a href="https://www.linkedin.com/in/vinicius-souza-dyonisio-a59a08206/" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
 </a>
-|	**Willian Gonçalves** <a href="https://www.linkedin.com/in/williangon%C3%A7alves25/" target="_blank">
+
+**- Willian Gonçalves** <a href="https://www.linkedin.com/in/williangon%C3%A7alves25/" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
 </a>
 
 
-•	**Frontend:**
+### **• Frontend:**
 
-**André Silva** <a href="https://www.linkedin.com/in/andre-eduardo-xavier-silva-40b475217/" target="_blank">
+**- André Silva** <a href="https://www.linkedin.com/in/andre-eduardo-xavier-silva-40b475217/" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
+</a>
+
+**- Eliza Paoliello** <a href="https://www.linkedin.com/in/elizapaoliello/" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
 </a> 
-|	**Eliza Paoliello** <a href="https://www.linkedin.com/in/elizapaoliello/" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
-</a> 
-|	**Viviane Monteiro** <a href="https://www.linkedin.com/in/vivianesantos35/" target="_blank">
+
+**- Viviane Monteiro** <a href="https://www.linkedin.com/in/vivianesantos35/" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
 </a>  
-|	**Yuri Nascimento** <a href="https://www.linkedin.com/in/yuri-rocha-3714b322a/" target="_blank">
+
+**- Yuri Nascimento** <a href="https://www.linkedin.com/in/yuri-rocha-3714b322a/" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/f/f8/LinkedIn_icon_circle.svg" alt="LinkedIn" style="width: 40px; height: 20px;"/> 
 </a>  
 
