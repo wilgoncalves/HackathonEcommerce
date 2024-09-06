@@ -8,7 +8,8 @@ export default reducers => {
         key: 'TaNaCestaCarrinho',
         storage,
         whitelist: [
-            'cart'
+            'cart',
+            'products'
         ]
     },
         reducers

@@ -7,6 +7,7 @@ export function cartRequest(payload) {
         payload,
     }
 }
+
 export function cartSuccess(payload) {
     console.log('action success');
     return {
@@ -14,6 +15,7 @@ export function cartSuccess(payload) {
         payload,
     }
 }
+
 export function cartFailure(payload) {
     return {
         type: types.CART_ADD_PRODUCT_FAILURE,
