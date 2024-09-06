@@ -12,7 +12,10 @@ const Header = () => {
             <div className='lg:hidden w-[200px] lg:w-[350px]'>
             <img src={Logo} alt="Logo Tá na Cesta" />
         </div>
-            <span className="text-secondaryGreen font-outfit font-extrabold text-xl md:text-xl mt-10 lg:mt-0">PEÇA ONLINE</span>
+            <a href="#destaques"><span className="text-secondaryGreen font-outfit font-extrabold text-xl md:text-xl mt-10 lg:mt-0">
+                PEÇA ONLINE
+            </span>
+            </a>
             <span className="lg:w-[800px] font-caveat text-[40px] md:text-[60px] lg:text-[80px] text-center leading-none">
                 Frutas, Legumes e Verduras fresquinhos todos os dias!
             </span>
@@ -31,11 +34,12 @@ const Header = () => {
                     </span>
             </div>
             <div className='mt-8 h-10'>
-                <Button 
+                <a href="#destaques"><Button 
                 label="Peça agora e experimente"
                 className="bg-gradient-to-r from-primaryGreen via-primaryGreen to-secondaryGreen w-full font-outfit font-semibold px-4 md:px-8 py-4 
                 text-whiteNormal rounded-xl hover:text-white hover:border-4 hover:border-scale-105"
                 />
+                </a>
             </div>
             <div className='flex flex-row mt-12 text-5xl gap-4'>
             <FaInstagram />

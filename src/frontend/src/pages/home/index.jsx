@@ -27,7 +27,6 @@ function Home() {
       <Catalog />
       <Contact />
       <Footer />
-      <Cart />
     </div>
   );
 }

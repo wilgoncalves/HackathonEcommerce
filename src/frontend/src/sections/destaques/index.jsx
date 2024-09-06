@@ -58,7 +58,7 @@ const Destaques = () => {
                     <hr className="text-darkFadeColor"></hr>
                     <div className="flex items-center space-x-3">
                       <p className="product-price font-bold text-2xl">R${price}</p>
-                      <div className="bg-redNormal p-2 rounded-full" 
+                      <div className="bg-redNormal p-2 rounded-full cursor-pointer" 
                       onClick={() =>
                         addToCart({ name, price, image, description })}>
                         <FaPlus className="text-whiteNormal" />

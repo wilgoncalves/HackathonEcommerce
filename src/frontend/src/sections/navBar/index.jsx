@@ -37,7 +37,7 @@ const NavbarComponent = () => {
   };
 
   return (
-    <div className="flex flex-row-reverse md:flex-row gap-2 w-full md:w-[95%] justify-between items-center p-4">
+    <div id='home' className="flex flex-row-reverse md:flex-row gap-2 w-full md:w-[95%] justify-between items-center p-4">
       <div className="hidden lg:block w-[250px]">
         <img src={Logo} alt="Logo Tá na Cesta" />
       </div>
@@ -52,7 +52,9 @@ const NavbarComponent = () => {
             ref={menuRef}
             className="absolute top-[40px] right-0 w-[80px] bg-opacityDarkLight rounded-xl shadow-lg z-10"
           >
+            <a href="#home">
             <Button label="Home" />
+            </a>
             <a href="#destaques">
               <Button label="Destaques" />
             </a>
@@ -67,9 +69,9 @@ const NavbarComponent = () => {
       </div>
 
       <div className="hidden md:flex flex-row w-full gap-2 lg:gap-6 justify-center">
-        <a href="#">
-          <Button label="Home" />
-        </a>
+      <a href="#home">
+            <Button label="Home" />
+            </a>
 
         <a href="#destaques">
           <Button label="Destaques" />
