@@ -6,8 +6,6 @@ import CartButton from "../../components/cart";
 import LoginPage from "../../pages/login";
 import SignupPage from "../../pages/cad-user";
 import Catalog from "../../sections/catalog";
-import Footer from "../../sections/footer";
-
 
 function Home() {
   const itemCount = 5;
@@ -19,7 +17,6 @@ function Home() {
       <Header />
       <Highlights />
       <Catalog />
-      <Footer />
     </div>
   );
 }
