@@ -1,8 +1,8 @@
 # **TÁ NA CESTA ECOMMERCE**
 
-Vai preparar o almoço em família? As demandas do dia estão grandes? Chegou em casa e percebeu que esqueceu de comprar cebola e coentro? Não se preocupe, o Tá Na Cesta chegou para facilitar a sua vida! Agora você pode montar sua cesta de frutas e legumes no conforto da sua casa e recebê-la em até 1 hora. Tudo o que você precisa, Tá Na Cesta!*
+Vai preparar o almoço em família? As demandas do dia estão grandes? Chegou em casa e percebeu que esqueceu de comprar cebola e coentro? Não se preocupe, o Tá Na Cesta chegou para facilitar a sua vida! Agora você pode montar sua cesta de frutas e legumes no conforto da sua casa e recebê-la em até 1 hora. Tudo o que você precisa, Tá Na Cesta!
 
-[Tá Na Cesta](docs/design/tanacestalogo.jpeg)
+![Tá Na Cesta](./docs/design/tanacestalogo.jpeg)
 
 ## **QUEM SOMOS?**
 
