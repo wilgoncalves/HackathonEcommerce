@@ -1,9 +1,11 @@
 import { useContext } from 'react';
 import { CartContext } from '../../CartContext.jsx';
+import { useNavigate } from 'react-router-dom'; // Importa o useNavigate
 
 const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity } = useContext(CartContext);
-  
+  const navigate = useNavigate(); // Inicializa o hook useNavigate
+
   // Função para atualizar a quantidade
   const handleQuantityChange = (index, newQuantity) => {
     if (newQuantity > 0) {
@@ -14,9 +16,18 @@ const Cart = () => {
   // Função para calcular o total do carrinho
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => {
-      const price = parseFloat(item.price); // Converta o preço para número
+      const price = parseFloat(item.price);
       return total + (price * item.quantity);
     }, 0);
+  };
+
+  // Função para redirecionar para a página de checkout
+  const handleCheckout = () => {
+    if (cartItems.length > 0) {
+      navigate('/checkout'); // Redireciona para a página de checkout
+    } else {
+      alert('Seu carrinho está vazio!');
+    }
   };
 
   return (
@@ -67,14 +78,16 @@ const Cart = () => {
             <p className="text-2xl font-semibold">R${calculateTotal().toFixed(2)}</p>
           </div>
           <div className='flex mt-10 w-full justify-center'>
-            <button className='md:text-[20px] bg-transparent mb-16 md:mb-8 border-2 border-whatsappColor 
-            text-whatsappColor px-12 py-3 rounded-full hover:bg-whatsappColor hover:text-white transition-all'>
+            <button 
+              onClick={handleCheckout} // Função de checkout ao clicar no botão
+              className='md:text-[20px] bg-transparent mb-16 md:mb-8 border-2 border-whatsappColor 
+              text-whatsappColor px-12 py-3 rounded-full hover:bg-whatsappColor hover:text-white transition-all'>
               Enviar pedido
             </button>
           </div>
         </div>
       ) : (
-        <p className="text-center text-gray-600">Seu carrinho esta vazio</p>
+        <p className="text-center text-gray-600">Seu carrinho está vazio</p>
       )}
     </div>
   );

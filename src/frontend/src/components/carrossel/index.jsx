@@ -22,7 +22,7 @@ const ProductCarousel = ({ title, products }) => {
       const products = [];
       products.push({ name: "Teste" })
       if (products.length > 0) {
-          dispatch(actions.cartRequest({ name: "Teste" }));
+          dispatch(actions.cartRequest({ name: "legumes" }));
       }
   }
 
@@ -71,11 +71,14 @@ const ProductCarousel = ({ title, products }) => {
                 <div className="flex items-center space-x-3">
                   <p className="product-price font-bold text-2xl">R${price}</p>
                   <div className="bg-redNormal p-2 rounded-full"
-                  onClick={handleClick}
-                  /*onClick={() =>
+                  /*onClick={handleClick} 
+                  onClick={() =>
                     addToCart({ name, price, image, description })}*/
                   >
-                    <FaPlus className="text-whiteNormal" />
+                    <FaPlus 
+                    onClick={() =>
+                      addToCart({ name, price, image, description })}
+                    className="text-whiteNormal" />
                   </div>
                 </div>
               </div>

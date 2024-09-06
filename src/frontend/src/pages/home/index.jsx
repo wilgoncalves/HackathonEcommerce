@@ -10,6 +10,7 @@ import SignupPage from "../../pages/createUser";
 import Catalog from "../../sections/catalog";
 import Contact from "../../sections/contact";
 import CartPage from "../../pages/cart";
+import Checkout from "../../pages/checkout/checkout.jsx";
 
 import { useEffect, useState } from "react";
 import Cart from "../../components/cartButton/cart.jsx";
@@ -53,6 +54,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/carrinho" element={<CartPage />} />
+        <Route path="/checkout" element={<Checkout />} />
       </Routes>
     </Router>
   );
