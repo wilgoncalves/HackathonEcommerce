@@ -10,6 +10,7 @@ import Contact from "../../sections/contact";
 import Highlights from "../../sections/destaques";
 import Header from "../../sections/header";
 import NavBar from "../../sections/navBar";
+import Footer from '../../sections/footer/index.jsx';
 import Checkout from "../../pages/checkout/checkout.jsx"
 
 function Home() {
@@ -25,6 +26,8 @@ function Home() {
       <Highlights />
       <Catalog />
       <Contact />
+      <Footer />
+      <Cart />
     </div>
   );
 }
