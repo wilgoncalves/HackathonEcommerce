@@ -4,10 +4,10 @@ using TaNaCesta.Communication.Responses;
 using TaNaCesta.Application.UseCases.User.Register;
 using TaNaCesta.Application.UseCases.User.Get;
 using TaNaCesta.Application.UseCases.User.Put;
-using TaNaCesta.Domain.Entities;
 
 namespace TaNaCesta.API.Controllers
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [Route("[controller]")]
     [ApiController]
     public class UserController : ControllerBase

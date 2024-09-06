@@ -1,7 +1,8 @@
+import { useContext } from 'react';
 import ScrollingBanner from "../../components/ScrollingBanner";
 import { FaPlus } from "react-icons/fa";
-
-import { highlights } from "../../Data";
+import { CartContext } from '../../CartContext.jsx';
+import { destaques } from "../../Data";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
@@ -9,7 +10,8 @@ import 'swiper/css/navigation';
 
 import { Navigation } from "swiper/modules";
 
-const Hightlights = () => {
+const Destaques = () => {
+  const { addToCart } = useContext(CartContext);
   return (
     <div className="flex flex-col w-full md:w-full mt-6 pb-11 md:mt-10 lg:mt-20 items-center bg-darkerGreen">
       <div className="bg-gradient-to-r from-primaryGreen via-primaryGreen to-secondaryGreen w-full font-outfit font-semibold py-5 text-whiteNormal text-center">
@@ -28,7 +30,7 @@ const Hightlights = () => {
             spaceBetween={10}
             navigation={true}
             breakpoints={{
-              350: {
+              300: {
                 slidesPerView: 1,
                 spaceBetween: 30,
               },
@@ -44,7 +46,7 @@ const Hightlights = () => {
             modules={[Navigation]}
             className="mySwiper highlight-products"
           >
-            {highlights.map(({ name, price, image, description }, index) => (
+            {destaques.map(({ name, price, image, description }, index) => (
               <SwiperSlide
                 key={index}
                 className="product-container bg-whiteNormal lg:px-4 py-2 font-outfit font-medium text-[14px] lg:text-[16px] xl:text-[20px] text-black-normal rounded-lg"
@@ -56,7 +58,9 @@ const Hightlights = () => {
                     <hr className="text-darkFadeColor"></hr>
                     <div className="flex items-center space-x-3">
                       <p className="product-price font-bold text-2xl">R${price}</p>
-                      <div className="bg-redNormal p-2 rounded-full">
+                      <div className="bg-redNormal p-2 rounded-full" 
+                      onClick={() =>
+                        addToCart({ name, price, image, description })}>
                         <FaPlus className="text-whiteNormal" />
                       </div>
                     </div>
@@ -74,4 +78,4 @@ const Hightlights = () => {
   );
 };
 
-export default Hightlights;
+export default Destaques;

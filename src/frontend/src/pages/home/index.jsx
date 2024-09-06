@@ -1,14 +1,21 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import NavBar from "../../sections/navBar";
-import Header from "../../sections/header";
-import Highlights from "../../sections/highlights";
-import CartButton from "../../components/cart";
+import { useContext } from 'react';
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { CartContext } from '../../CartContext.jsx';
+import Cart from "../../components/cartButton/cart.jsx";
+import CartButton from "../../components/cartButton/index.jsx";
+import CartPage from "../../pages/cart";
+import SignupPage from "../../pages/createUser";
 import LoginPage from "../../pages/login";
-import SignupPage from "../../pages/cad-user";
 import Catalog from "../../sections/catalog";
+import Contact from "../../sections/contact";
+import Highlights from "../../sections/destaques";
+import Header from "../../sections/header";
+import NavBar from "../../sections/navBar";
 
 function Home() {
-  const itemCount = 5;
+  const { cartItems } = useContext(CartContext);
+
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="flex flex-col w-full justify-center mt-4 items-center">
@@ -17,6 +24,8 @@ function Home() {
       <Header />
       <Highlights />
       <Catalog />
+      <Contact />
+      <Cart />
     </div>
   );
 }
@@ -28,6 +37,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/carrinho" element={<CartPage />} />
       </Routes>
     </Router>
   );
