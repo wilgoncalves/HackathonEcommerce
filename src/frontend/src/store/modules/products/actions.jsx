@@ -6,16 +6,16 @@ export function getAllProductsRequest() {
     }
 }
 
-export function getAllProductsSuccess(products) {
+export function getAllProductsSuccess(payload) {
     return {
         type: types.PRODUCTS_GETALL_SUCCESS,
-        payload: { products }
+        payload
     }
 }
 
-export function getAllProductsFailure(error) {
+export function getAllProductsFailure(payload) {
     return {
         type: types.PRODUCTS_GETALL_FAILURE,
-        payload: { error }
+        payload
     }
 }
