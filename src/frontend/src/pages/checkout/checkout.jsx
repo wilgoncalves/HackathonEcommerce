@@ -29,15 +29,15 @@ const Checkout = () => {
   };
 
   return (
-    <div className="container font-outfit w-[60%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
-      <div className="flex flex-row justify-center gap-16 items-center h-[250px]">
+    <div className="container font-outfit lg:w-[60%] w-[95%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
+      <div className="flex md:flex-row flex-col justify-center md:gap-16 items-center h-[250px]">
        <img src={Logo} alt="Logotipo Tá na Cesta" 
-       className="w-[250px]"
+       className="md:w-[250px] w-[200px]"
        />
-       <h2 className="text-6xl font-semibold font-caveat mb-6">Checkout</h2>
+       <h2 className="md:text-6xl text-4xl font-semibold font-caveat mb-6">Checkout</h2>
       </div>
       <div
-      className="flex gap-2 m-2 cursor-pointer items-center">
+      className="flex text-[12px] md:text-[18px] gap-2 m-2 cursor-pointer items-center">
       <FaPlus className="text-redNormal" />
       <span onClick={handleClose}>
       Adicionar Produtos
@@ -65,7 +65,7 @@ const Checkout = () => {
                   className="w-16 h-16 object-cover rounded-md"
                 />
                 <div>
-                  <h3 className="text-lg font-medium">{item.name}</h3>
+                  <h3 className="md:text-lg text-[12px] font-medium">{item.name}</h3>
                   <p className="text-gray-600">
                     R${parseFloat(item.price).toFixed(2)}
                   </p>
@@ -81,7 +81,7 @@ const Checkout = () => {
             R${calculateTotal().toFixed(2)}
           </p>
         </div>
-        <div className="flex flex-col mt-6 w-[300px]">
+        <div className="flex flex-col mt-6 md:w-[300px] w-90%">
           <h3 className="text-xl font-bold mb-4">Informações do Cliente</h3>
           <div className="mb-4">
             <label className="block text-gray-700">Nome</label>

@@ -34,14 +34,14 @@ const Cart = () => {
   };
 
   return (
-    <div className="container font-outfit w-[60%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
+    <div className="container font-outfit lg:w-[60%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
       <div className="flex flex-row justify-center gap-10 items-center h-[250px]">
        <img src={Logo} alt="Logotipo Tá na Cesta" 
-       className="w-[250px]"
+       className="md:w-[250px] w-[200px]"
        />
       </div>
       <div onClick={handleClose}
-      className="flex gap-2 m-2 cursor-pointer items-center">
+      className="flex gap-2 m-2 text-[12px] md:text-[16px] cursor-pointer items-center">
       <FaPlus className="text-redNormal" />
       Adicionar Produtos | Fechar Cesta
       </div>
@@ -51,7 +51,7 @@ const Cart = () => {
             {cartItems.map((item, index) => (
               <li
                 key={index}
-                className="flex justify-between items-center p-4 border-b border-gray-200"
+                className="flex flex-col md:flex-row md:justify-between items-center p-4 border-b border-gray-200"
               >
                 <div className="flex items-center space-x-4">
                   <img
@@ -64,7 +64,7 @@ const Cart = () => {
                     className="w-16 h-16 object-cover rounded-md"
                   />
                   <div>
-                    <h3 className="text-lg font-medium">{item.name}</h3>
+                    <h3 className="md:text-lg font-medium">{item.name}</h3>
                     <p className="text-gray-600">
                       R${parseFloat(item.price).toFixed(2)}
                     </p>
@@ -110,7 +110,7 @@ const Cart = () => {
               className="md:text-[20px] bg-transparent mb-16 md:mb-8 border-2 border-whatsappColor 
               text-whatsappColor px-12 py-3 rounded-full hover:bg-whatsappColor hover:text-white transition-all"
             >
-              Fechar Cesta
+              Finalizar Cesta
             </button>
           </div>
         </div>
