@@ -1,6 +1,6 @@
 import * as types from '../types';
 const initialState = {
-    products: [],
+    cartItems: [],
 };
 
 // Usa os tipos para definir qual estado setar. 
@@ -15,8 +15,7 @@ export default function reducer(state = initialState, action) {
 
         case types.CART_ADD_PRODUCT_SUCCESS: {
             const newState = { ...state };
-            newState.products = [...state.products, action.payload.name];
-            console.log(newState)
+            newState.cartItems = [...state.cartItems, action.payload.name];
             return newState;
         }
 

@@ -26,8 +26,6 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Lógica para enviar os dados do formulário
-    console.log("Form Data:", formData);
   };
 
   const handleClose = () => {
