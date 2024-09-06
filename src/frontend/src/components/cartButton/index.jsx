@@ -1,17 +1,17 @@
-import { TiShoppingCart } from "react-icons/ti";
-import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom'; // Importe o useNavigate
+import { LuShoppingBasket } from "react-icons/lu";
+import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 
 const CartButton = ({ itemCount }) => {
-  const navigate = useNavigate(); // Inicialize o hook useNavigate
+  const navigate = useNavigate();
 
   const handleCartClick = () => {
-    navigate("/carrinho"); // Redirecione o usuário para a página do carrinho
+    navigate("/carrinho");
   };
 
   return (
-    <button 
-      onClick={handleCartClick}  // Chame a função ao clicar no botão
+    <button
+      onClick={handleCartClick}
       className="
         fixed bottom-6 right-6
         md:text-[40px]
@@ -24,20 +24,22 @@ const CartButton = ({ itemCount }) => {
         z-10
       "
     >
-      <TiShoppingCart />
+      <LuShoppingBasket />
       {itemCount > 0 && (
-        <span className="
+        <span
+          className="
           absolute top-0 right-0 
           bg-red-600 text-white text-xs font-bold
           rounded-full h-5 w-5 flex items-center justify-center
           translate-x-1/2 translate-y-1/2
-        ">
+        "
+        >
           {itemCount}
         </span>
       )}
     </button>
   );
-}
+};
 
 CartButton.propTypes = {
   itemCount: PropTypes.number.isRequired,
