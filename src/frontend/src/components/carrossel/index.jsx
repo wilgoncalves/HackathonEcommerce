@@ -45,24 +45,23 @@ const ProductCarousel = ({ title, products }) => {
               key={index}
               className="border border-gray-200 hover:border-gray-300 rounded-lg p-4"
             >
-              <div className="flex flex-row p-7 items-center space-x-6">
+              <div className="flex flex-row p-5 items-center space-x-6 ">
                 <div className="product-info space-y-3 w-[70%]">
-                  <h3 className="font-bold text-xl">{name}</h3>
-                  <p className="text-darkFadeColor text-[14px]">{name}</p>
+                  <h3 className="font-bold lg:w-[170px] text-[14px] lg:text-xl">{name}</h3>
                   <hr className="text-darkFadeColor"></hr>
                   <div className="flex items-center space-x-3">
-                    <p className="product-price font-bold text-2xl">
-                      R${price}
+                    <p className="product-price font-bold text-[18px] lg:text-2xl">
+                      R$ {price.toFixed(2)}
                     </p>
                     <div
                       className="bg-redNormal p-2 rounded-full cursor-pointer"
                       onClick={() => addToCart({ name, price })}
                     >
-                      <FaPlus className="text-whiteNormal" />
+                      <FaPlus className="text-whiteNormal text-[12px]" />
                     </div>
                   </div>
                 </div>
-                <div className="product-image">
+                <div className="product-image md:w-full w-[80px]">
                   <img
                     src={`./src/assets/products/${name
                       .split(" ")[0]

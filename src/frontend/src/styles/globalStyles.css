@@ -38,7 +38,7 @@
     .swiper-button-prev {
         left: 0 !important;
         background-color: red;
-        padding-inline: 20px;
+        padding-inline: 22px;
         border-radius: 50%;
     }
 
@@ -47,6 +47,17 @@
         background-color: red;
         padding-inline: 22px;
         border-radius: 50%;
+    }
+
+    @media screen and (max-width: 768px ) {
+        .swiper-button-next {
+            padding-inline: 15px;
+            height: 30px !important;
+        }
+        .swiper-button-prev {
+            padding-inline: 15px;
+            height: 30px !important;
+        }
     }
 
     .swiper-button-prev::after,
