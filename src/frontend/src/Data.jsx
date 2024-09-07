@@ -2,7 +2,7 @@ export const destaques = [
   {
     id: 1,
     name: 'Tomate (kg)',
-    price: '30,00',
+    price: '7,00',
     image: 'tomate.png',
     category: 'fruta',
     description:
@@ -11,7 +11,7 @@ export const destaques = [
   {
     id: 2,
     name: 'Alface americana (500g)',
-    price: '30,00',
+    price: '5,00',
     image: 'alface.png',
     category: 'Hortaliça',
     description:
@@ -19,12 +19,12 @@ export const destaques = [
   },
   {
     id: 3,
-    name: 'Tomate cereja (kg)',
-    price: '30,00',
-    image: 'tomate.png',
+    name: 'Laranja (kg)',
+    price: '6,00',
+    image: 'laranja.png',
     category: 'Fruta',
     description:
-      'Lorem ipsum dolor sit amet',
+      'Docinha feito mel, ideal para um suco bem geladinho',
   },
 ];
 

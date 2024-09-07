@@ -16,7 +16,7 @@ import Checkout from "../../pages/checkout/checkout.jsx";
 function Home() {
   const { cartItems } = useContext(CartContext);
 
-  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const itemCount = cartItems.length;
 
   return (
     <div className="flex flex-col w-full justify-center mt-4 items-center">
