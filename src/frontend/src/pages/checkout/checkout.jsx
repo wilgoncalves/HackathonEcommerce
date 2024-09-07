@@ -4,6 +4,10 @@ import Logo from "../../assets/logo-tana-cesta.png";
 import { useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const Checkout = () => {
   const navigate = useNavigate();
   const { cartItems, calculateTotal } = useContext(CartContext);
@@ -62,9 +66,10 @@ const Checkout = () => {
 
       setName("");
       setPhone("");
-      alert("Pedido finalizado com sucesso!");
+      toast.success("Pedido finalizado com sucesso!");
     } else {
-      alert("Por favor, preencha todos os campos corretamente.");
+      // Exibir o toast de erro
+      toast.error("Por favor, preencha todos os campos corretamente.");
     }
   };
 
@@ -78,6 +83,7 @@ const Checkout = () => {
 
   return (
     <div className="container font-outfit lg:w-[60%] w-[95%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
+       <ToastContainer />
       <div className="flex md:flex-row flex-col justify-center md:gap-16 items-center h-[250px]">
         <img
           src={Logo}
