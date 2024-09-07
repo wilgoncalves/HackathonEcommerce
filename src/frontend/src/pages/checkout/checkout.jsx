@@ -18,8 +18,27 @@ const Checkout = () => {
       .padStart(6, "0");
   };
 
+  const handlePhoneChange = (e) => {
+    let input = e.target.value.replace(/\D/g, ""); // Remove todos os caracteres que não sejam dígitos
+    if (input.length > 11) input = input.slice(0, 11); // Limita a 11 dígitos
+
+    // Aplica a formatação de celular
+    if (input.length > 6) {
+      input = `(${input.slice(0, 2)}) ${input.slice(2, 7)}-${input.slice(7)}`;
+    } else if (input.length > 2) {
+      input = `(${input.slice(0, 2)}) ${input.slice(2)}`;
+    } else if (input.length > 0) {
+      input = `(${input}`;
+    }
+
+    setPhone(input);
+  };
+
   const handleFinalizeOrder = () => {
-    if (name && phone) {
+    // Verifica se o campo de telefone está completo
+    const phoneDigits = phone.replace(/\D/g, ""); // Remove a formatação para obter apenas os dígitos
+
+    if (name && phoneDigits.length === 11) {
       const orderNumber = generateOrderNumber();
 
       const orderSummary = cartItems
@@ -45,7 +64,7 @@ const Checkout = () => {
       setPhone("");
       alert("Pedido finalizado com sucesso!");
     } else {
-      alert("Por favor, preencha todos os campos.");
+      alert("Por favor, preencha todos os campos corretamente.");
     }
   };
 
@@ -133,7 +152,8 @@ const Checkout = () => {
             <input
               type="text"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={handlePhoneChange}
+              placeholder="(XX) XXXXX-XXXX"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg"
             />
           </div>
