@@ -33,7 +33,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "ReactApp", policy =>
     {
-        policy.AllowAnyOrigin();
+        policy.AllowAnyOrigin().AllowAnyHeader();
     });
 });
 

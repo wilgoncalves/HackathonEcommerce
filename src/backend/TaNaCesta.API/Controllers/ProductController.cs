@@ -23,7 +23,6 @@ namespace TaNaCesta.API.Controllers
         {
             var result = service.GetProductById(id).Result;
             return Ok(result);
-
         }
 
         [HttpGet("products/")]
