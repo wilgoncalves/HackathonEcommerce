@@ -25,7 +25,6 @@ namespace TaNaCesta.API.Filters
             if (context.Exception is ErrorOnValidationException)
             {
                 var exception = context.Exception as ErrorOnValidationException;
-
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.BadRequest;
                 context.Result = new BadRequestObjectResult(new ResponseErrorJson(exception!.ErrorMessages));
             }
@@ -33,7 +32,6 @@ namespace TaNaCesta.API.Filters
             if (context.Exception is EntityNotFoundException)
             {
                 var exception = context.Exception as EntityNotFoundException;
-
                 context.HttpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
                 context.Result = new BadRequestObjectResult(new ResponseErrorJson(exception!.ErrorMessage));
             }
