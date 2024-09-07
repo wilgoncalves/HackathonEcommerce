@@ -4,6 +4,10 @@ import Logo from "../../assets/logo-tana-cesta.png";
 import { useNavigate } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
 
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const Checkout = () => {
   const navigate = useNavigate();
   const { cartItems, calculateTotal } = useContext(CartContext);
@@ -18,8 +22,27 @@ const Checkout = () => {
       .padStart(6, "0");
   };
 
+  const handlePhoneChange = (e) => {
+    let input = e.target.value.replace(/\D/g, ""); // Remove todos os caracteres que não sejam dígitos
+    if (input.length > 11) input = input.slice(0, 11); // Limita a 11 dígitos
+
+    // Aplica a formatação de celular
+    if (input.length > 6) {
+      input = `(${input.slice(0, 2)}) ${input.slice(2, 7)}-${input.slice(7)}`;
+    } else if (input.length > 2) {
+      input = `(${input.slice(0, 2)}) ${input.slice(2)}`;
+    } else if (input.length > 0) {
+      input = `(${input}`;
+    }
+
+    setPhone(input);
+  };
+
   const handleFinalizeOrder = () => {
-    if (name && phone) {
+    // Verifica se o campo de telefone está completo
+    const phoneDigits = phone.replace(/\D/g, ""); // Remove a formatação para obter apenas os dígitos
+
+    if (name && phoneDigits.length === 11) {
       const orderNumber = generateOrderNumber();
 
       const orderSummary = cartItems
@@ -43,9 +66,10 @@ const Checkout = () => {
 
       setName("");
       setPhone("");
-      alert("Pedido finalizado com sucesso!");
+      toast.success("Pedido finalizado com sucesso!");
     } else {
-      alert("Por favor, preencha todos os campos.");
+      // Exibir o toast de erro
+      toast.error("Por favor, preencha todos os campos corretamente.");
     }
   };
 
@@ -59,6 +83,7 @@ const Checkout = () => {
 
   return (
     <div className="container font-outfit lg:w-[60%] w-[95%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
+       <ToastContainer />
       <div className="flex md:flex-row flex-col justify-center md:gap-16 items-center h-[250px]">
         <img
           src={Logo}
@@ -133,7 +158,8 @@ const Checkout = () => {
             <input
               type="text"
               value={phone}
-              onChange={(e) => setPhone(e.target.value)}
+              onChange={handlePhoneChange}
+              placeholder="(XX) XXXXX-XXXX"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg"
             />
           </div>
