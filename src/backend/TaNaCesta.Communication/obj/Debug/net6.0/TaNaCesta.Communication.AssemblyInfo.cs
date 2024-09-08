@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaNaCesta.Communication")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ea3a63381d304c6b87a8583fea842e391f308a68")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13c3ceaa143eaa426bcbfefcfb9966ea2aedab98")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaNaCesta.Communication")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaNaCesta.Communication")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
