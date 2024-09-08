@@ -1,0 +1,12 @@
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\bin\Debug\net6.0\TaNaCesta.Communication.deps.json
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\bin\Debug\net6.0\TaNaCesta.Communication.dll
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\bin\Debug\net6.0\TaNaCesta.Communication.pdb
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\TaNaCesta.Communication.csproj.AssemblyReference.cache
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\TaNaCesta.Communication.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\TaNaCesta.Communication.AssemblyInfoInputs.cache
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\TaNaCesta.Communication.AssemblyInfo.cs
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\TaNaCesta.Communication.csproj.CoreCompileInputs.cache
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\TaNaCesta.Communication.dll
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\refint\TaNaCesta.Communication.dll
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\TaNaCesta.Communication.pdb
+C:\Users\Andre-Hard\Documents\GitHub\HackathonEcommerce\src\backend\TaNaCesta.Communication\obj\Debug\net6.0\ref\TaNaCesta.Communication.dll

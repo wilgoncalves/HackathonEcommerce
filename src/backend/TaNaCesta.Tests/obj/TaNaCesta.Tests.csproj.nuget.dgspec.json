@@ -1,0 +1,302 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Tests\\TaNaCesta.Tests.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Application\\TaNaCesta.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Application\\TaNaCesta.Application.csproj",
+        "projectName": "TaNaCesta.Application",
+        "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Application\\TaNaCesta.Application.csproj",
+        "packagesPath": "C:\\Users\\Andre-Hard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Andre-Hard\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Communication\\TaNaCesta.Communication.csproj": {
+                "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Communication\\TaNaCesta.Communication.csproj"
+              },
+              "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\TaNaCesta.Domain.csproj": {
+                "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\TaNaCesta.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.9.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Communication\\TaNaCesta.Communication.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Communication\\TaNaCesta.Communication.csproj",
+        "projectName": "TaNaCesta.Communication",
+        "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Communication\\TaNaCesta.Communication.csproj",
+        "packagesPath": "C:\\Users\\Andre-Hard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Communication\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Andre-Hard\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\TaNaCesta.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\TaNaCesta.Domain.csproj",
+        "projectName": "TaNaCesta.Domain",
+        "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\TaNaCesta.Domain.csproj",
+        "packagesPath": "C:\\Users\\Andre-Hard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Andre-Hard\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Tests\\TaNaCesta.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Tests\\TaNaCesta.Tests.csproj",
+        "projectName": "TaNaCesta.Tests",
+        "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Tests\\TaNaCesta.Tests.csproj",
+        "packagesPath": "C:\\Users\\Andre-Hard\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Tests\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Andre-Hard\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Application\\TaNaCesta.Application.csproj": {
+                "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Application\\TaNaCesta.Application.csproj"
+              },
+              "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\TaNaCesta.Domain.csproj": {
+                "projectPath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Domain\\TaNaCesta.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Bogus": {
+              "target": "Package",
+              "version": "[35.6.1, )"
+            },
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[6.12.0, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.1.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.71, )"
+            },
+            "Moq.AutoMock": {
+              "target": "Package",
+              "version": "[3.5.0, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.1, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "XZ5bYXKKoQoAx4tRTwtBCk5e+YQr8yqQE9mLHynr9li7wmqNGjKYt6Pq5+hCwAkYJftio+W8YLgNzEqd79tbBg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Andre-Hard\\Documents\\GitHub\\HackathonEcommerce\\src\\backend\\TaNaCesta.Application\\TaNaCesta.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Andre-Hard\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
+    "C:\\Users\\Andre-Hard\\.nuget\\packages\\fluentvalidation\\11.9.2\\fluentvalidation.11.9.2.nupkg.sha512",
+    "C:\\Users\\Andre-Hard\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\6.0.0\\microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\Andre-Hard\\.nuget\\packages\\microsoft.extensions.options\\6.0.0\\microsoft.extensions.options.6.0.0.nupkg.sha512",
+    "C:\\Users\\Andre-Hard\\.nuget\\packages\\microsoft.extensions.primitives\\6.0.0\\microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+    "C:\\Users\\Andre-Hard\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
