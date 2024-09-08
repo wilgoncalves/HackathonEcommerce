@@ -3,6 +3,6 @@
   <PropertyGroup>
     <Controller_SelectedScaffolderID>ApiControllerEmptyScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/Api</Controller_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>C:\dev\hackaton\HackathonEcommerce\src\backend\TaNaCesta.API\Properties\PublishProfiles\registry.hub.docker.com.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>C:\dev\hackaton\HackathonEcommerce\src\backend\TaNaCesta.API\Properties\PublishProfiles\tanacesta - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
