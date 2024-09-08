@@ -29,13 +29,6 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddMvc(options => options.Filters.Add(typeof(ExceptionFilter)));
-builder.Services.AddCors(options =>
-{
-    options.AddPolicy(name: "ReactApp", policy =>
-    {
-        policy.AllowAnyOrigin().AllowAnyHeader();
-    });
-});
 
 builder.Services.AddDbContext<TaNaCestaDbContext>();
 
@@ -55,15 +48,12 @@ builder.Services.AddScoped<ISaveCategoryUseCase, SaveCategoryUseCase>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
 
 app.UseHttpsRedirection();
-
-app.UseCors("ReactApp");
 
 app.UseAuthorization();
 
