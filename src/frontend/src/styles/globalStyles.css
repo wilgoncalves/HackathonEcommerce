@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-green-color: #159959;
+    --secondary-green-color: #0a542e;
+    --darker-green: #094125;
+    --red-normal: #d72929;
+    /* --dark-red: #841018; */
+    /* --darker-red: #490a0e; */
+    --black-normal: #393939;
+    --white-normal: #ffffff;
+    --whatsapp-color: #2bcb04;
+    --dark-light-color: #EAEAEA;
+    --dark-fade-color: #A8A8A8;
+    --opacityDarkLight: rgba(234,234,234,0.75);
+    }
+    body{
+        color: var(--black-normal);
+        img{
+            width: 100%;
+        }
+    }
+
+    .swiper-slide {
+        height: auto !important;
+        display: flex !important;
+        margin-right: 20px !important;
+    }
+
+    .swiper-button-prev {
+        left: 0 !important;
+        background-color: red;
+        padding-inline: 22px;
+        border-radius: 50%;
+    }
+
+    .swiper-button-next {
+        right: 0 !important;
+        background-color: red;
+        padding-inline: 22px;
+        border-radius: 50%;
+    }
+
+    @media screen and (max-width: 768px ) {
+        .swiper-button-next {
+            padding-inline: 15px;
+            height: 30px !important;
+        }
+        .swiper-button-prev {
+            padding-inline: 15px;
+            height: 30px !important;
+        }
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        font-size: 1.2rem !important;
+        color: white;
+    }
