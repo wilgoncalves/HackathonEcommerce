@@ -1,12 +1,12 @@
 import { useContext } from "react";
-import ScrollingBanner from "../../components/ScrollingBanner";
 import { FaPlus } from "react-icons/fa";
-import { CartContext } from "../../CartContext.jsx";
-import { destaques } from "../../Data";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { CartContext } from "../../CartContext.jsx";
+import ScrollingBanner from "../../components/ScrollingBanner";
+import { destaques } from "../../Data";
 
 const Destaques = () => {
   const { addToCart } = useContext(CartContext);
@@ -71,7 +71,7 @@ const Destaques = () => {
                     </div>
                   </div>
                   <div className="product-image">
-                    <img src={`./src/assets/products/${image}`} alt="" />
+                    <img src={`./assets/products/${image}`} alt="" />
                   </div>
                 </div>
               </SwiperSlide>
