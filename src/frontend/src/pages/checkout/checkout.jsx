@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
+import { FaPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../CartContext.jsx";
 import Logo from "../../assets/logo-tana-cesta.png";
-import { useNavigate } from "react-router-dom";
-import { FaPlus } from "react-icons/fa";
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -83,7 +83,7 @@ const Checkout = () => {
 
   return (
     <div className="container font-outfit lg:w-[60%] w-[95%] mx-auto mt-4 rounded-3xl p-4 bg-gray-100 min-h-screen">
-       <ToastContainer />
+      <ToastContainer />
       <div className="flex md:flex-row flex-col justify-center md:gap-16 items-center h-[250px]">
         <img
           src={Logo}
@@ -159,6 +159,7 @@ const Checkout = () => {
               type="text"
               value={phone}
               onChange={handlePhoneChange}
+              max={11}
               placeholder="(XX) XXXXX-XXXX"
               className="w-full px-4 py-2 border border-gray-300 rounded-lg"
             />
