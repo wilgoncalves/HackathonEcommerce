@@ -24,6 +24,11 @@ builder.Services.AddScoped(options => new AutoMapper.MapperConfiguration(options
     options.AddProfile(new AutoMapping());
 }).CreateMapper());
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "TaNaCestaFront", policy => { policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
+});
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -55,6 +60,8 @@ app.UseCors();
 
 
 app.UseHttpsRedirection();
+
+app.UseCors("TaNaCestaFront");
 
 app.UseAuthorization();
 
